@@ -23,8 +23,10 @@ const transporter = nodemailer.createTransport({
 
 app.post('/api/booking', async (req, res) => {
   const { name, email, company, topic, lang, website } = req.body || {};
+  console.log('[booking] ip=%s name=%s email=%s honeypot=%s', req.ip, name, email, !!website);
   if (website) return res.status(200).json({ ok: true }); // honeypot
   if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    console.log('[booking] validation failed');
     return res.status(400).json({ ok: false, error: 'invalid' });
   }
   const subject = (lang === 'en'
@@ -36,6 +38,7 @@ app.post('/api/booking', async (req, res) => {
     (company ? `Firma: ${company}\n` : '') +
     (topic ? `\n${topic}\n` : '');
   try {
+    console.log('[booking] sending mail to', process.env.MAIL_TO);
     await transporter.sendMail({
       from: process.env.MAIL_FROM,
       to: process.env.MAIL_TO,
@@ -43,9 +46,10 @@ app.post('/api/booking', async (req, res) => {
       subject,
       text,
     });
+    console.log('[booking] mail sent ok');
     res.json({ ok: true });
   } catch (e) {
-    console.error('mail send failed', e);
+    console.error('[booking] mail send failed', e.message);
     res.status(500).json({ ok: false, error: 'send_failed' });
   }
 });
