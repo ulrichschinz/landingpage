@@ -1,8 +1,26 @@
-# Claude Code meta files
+# ── Dependencies ──────────────────────────────────────────────────────────────
+node_modules/
+
+# ── Secrets & environment ─────────────────────────────────────────────────────
+.env*
+!.env.example
+
+# ── Build output ──────────────────────────────────────────────────────────────
+dist/
+build/
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+logs/
+*.log
+npm-debug.log*
+
+# ── OS & editor junk ──────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ── Claude Code meta ──────────────────────────────────────────────────────────
 CLAUDE.md
 .claude/
 DEPLOY.md
-
-# Secrets
-.env*
-!.env.example
