@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Datenschutz — Agentic Reach</title>
+<link rel="stylesheet" href="fonts/fonts.css" />
+<style>
+  :root {
+    --coral:  #FF7A6B;
+    --plum:   #3D2B5C;
+    --yellow: #F4C84A;
+    --ink:    #1B1428;
+    --bg:     #FBF6EE;
+    --bg-alt: #F4ECE0;
+    --paper:  #FFFFFF;
+    --mute:   rgba(27, 20, 40, 0.62);
+    --hairline: rgba(27, 20, 40, 0.10);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  a { color: inherit; }
+  .container { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--mute);
+  }
+  .eyebrow .slash { color: var(--coral); font-weight: 600; }
+
+  /* Nav */
+  nav.top { border-bottom: 1px solid var(--hairline); background: var(--bg); }
+  nav.top .row {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px; max-width: 1240px; margin: 0 auto; padding: 0 32px;
+  }
+  nav.top .brand {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 500; font-size: 17px; letter-spacing: -0.02em;
+    text-decoration: none;
+  }
+  nav.top .right { display: flex; align-items: center; gap: 22px; }
+  nav.top .lang {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: var(--mute); display: inline-flex; gap: 6px;
+    letter-spacing: 0.04em;
+  }
+  nav.top .lang a { text-decoration: none; color: var(--mute); }
+  nav.top .lang a.active { color: var(--ink); font-weight: 600; }
+  nav.top .lang a:hover { color: var(--coral); }
+  nav.top .lang span { color: var(--hairline); }
+  nav.top .back {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px;
+    color: var(--mute); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  nav.top .back:hover { color: var(--ink); }
+
+  /* Hero */
+  section.hero {
+    padding: 80px 0 40px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  section.hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500; font-size: clamp(40px, 5vw, 60px);
+    letter-spacing: -0.035em; line-height: 1.0;
+    margin: 22px 0 18px;
+  }
+  section.hero h1 em {
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-weight: 300; color: var(--plum);
+  }
+  section.hero p {
+    font-size: 17px; line-height: 1.55; color: var(--mute);
+    margin: 0; max-width: 60ch;
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--paper); border: 1px solid var(--hairline);
+    border-radius: 12px; padding: 22px 26px; margin: 30px 0 0;
+    columns: 2; column-gap: 32px;
+  }
+  .toc ol { padding-left: 18px; margin: 0; }
+  .toc li {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px;
+    line-height: 2.0; color: var(--mute);
+    break-inside: avoid;
+  }
+  .toc a { color: var(--ink); text-decoration: none; }
+  .toc a:hover { color: var(--coral); }
+  @media (max-width: 600px) { .toc { columns: 1; } }
+
+  /* Legal body */
+  section.legal { padding: 60px 0 100px; }
+  .legal h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500; font-size: 22px; letter-spacing: -0.02em;
+    margin: 44px 0 14px;
+    scroll-margin-top: 80px;
+  }
+  .legal h2 .num {
+    color: var(--coral); font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; margin-right: 10px; vertical-align: middle;
+  }
+  .legal h2:first-of-type { margin-top: 0; }
+  .legal h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500; font-size: 16px; letter-spacing: -0.01em;
+    margin: 24px 0 8px;
+  }
+  .legal p, .legal li {
+    font-size: 16px; line-height: 1.65; color: var(--ink);
+  }
+  .legal p { margin: 0 0 14px; }
+  .legal ul { padding-left: 20px; margin: 0 0 14px; }
+  .legal a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--coral); text-underline-offset: 3px; }
+  .legal a:hover { color: var(--coral); }
+  .legal address {
+    font-style: normal; line-height: 1.7;
+    padding: 18px 22px; border-radius: 12px;
+    background: var(--paper); border: 1px solid var(--hairline);
+    margin: 0 0 14px;
+  }
+  .todo {
+    background: rgba(244,200,74,.18); color: var(--ink);
+    padding: 1px 6px; border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.92em;
+  }
+  .note {
+    background: var(--bg-alt); border-left: 3px solid var(--coral);
+    padding: 14px 18px; border-radius: 6px;
+    margin: 14px 0 18px; font-size: 14px; color: var(--mute);
+    line-height: 1.6;
+  }
+  .note strong { color: var(--ink); }
+
+  /* Footer */
+  footer {
+    background: var(--ink); color: var(--bg);
+    padding: 32px 0;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: 0.04em;
+  }
+  footer .row {
+    display: flex; justify-content: space-between; align-items: center;
+    max-width: 1240px; margin: 0 auto; padding: 0 32px;
+    color: rgba(251,246,238,.6);
+  }
+  footer a { color: var(--bg); opacity: .8; text-decoration: none; }
+  footer a:hover { opacity: 1; }
+  footer .links { display: flex; gap: 24px; }
+
+  @media (max-width: 700px) {
+    .container { padding: 0 20px; }
+    section.hero { padding: 50px 0 30px; }
+    nav.top .right { gap: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="row">
+    <a href="index.html" class="brand">
+      <svg width="64" height="32" viewBox="0 0 64 32" fill="none">
+        <g stroke="#3D2B5C" stroke-width="1.4" fill="none" opacity=".55">
+          <line x1="32" y1="14" x2="47.59" y2="23" /><line x1="47.59" y1="23" x2="47.59" y2="41" />
+          <line x1="32" y1="14" x2="32" y2="-4" /><line x1="32" y1="14" x2="16.41" y2="23" />
+          <line x1="16.41" y1="23" x2="16.41" y2="41" /><line x1="32" y1="14" x2="32" y2="32" />
+        </g>
+        <circle cx="32" cy="14" r="3.6" fill="#3D2B5C"/>
+        <circle cx="47.59" cy="23" r="2.8" fill="#3D2B5C"/>
+        <circle cx="16.41" cy="23" r="2.8" fill="#3D2B5C"/>
+        <circle cx="32" cy="14" r="4.4" fill="#FF7A6B"/>
+        <circle cx="51.59" cy="19" r="2" fill="#F4C84A"/>
+      </svg>
+      <span>Agentic Reach</span>
+    </a>
+    <div class="right">
+      <div class="lang">
+        <a href="Datenschutz.html" class="active">DE</a><span>/</span><a href="Privacy.html">EN</a>
+      </div>
+      <a href="index.html" class="back">← zur Startseite</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow"><span class="slash">//</span>&nbsp;rechtliches</span>
+    <h1>Datenschutz<em>­erklärung</em></h1>
+    <p>Wir verarbeiten so wenige Daten wie möglich. Diese Erklärung zeigt transparent, welche das sind, warum sie verarbeitet werden, und welche Rechte Sie haben.</p>
+
+    <nav class="toc" aria-label="Inhaltsverzeichnis">
+      <ol>
+        <li><a href="#verantwortlicher">Verantwortlicher</a></li>
+        <li><a href="#allgemeines">Allgemeines zur Verarbeitung</a></li>
+        <li><a href="#serverlogs">Server-Log-Dateien</a></li>
+        <li><a href="#kontakt">Kontaktaufnahme per E-Mail</a></li>
+        <li><a href="#kontaktformular">Kontaktformular (Erstgespräch)</a></li>
+        <li><a href="#hosting">Hosting</a></li>
+        <li><a href="#fonts">Schriftarten (lokal eingebunden)</a></li>
+        <li><a href="#cookies">Cookies &amp; Tracking</a></li>
+        <li><a href="#rechte">Ihre Rechte</a></li>
+        <li><a href="#beschwerde">Beschwerderecht</a></li>
+        <li><a href="#aenderungen">Änderungen</a></li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<section class="legal">
+  <div class="container">
+
+    <h2 id="verantwortlicher"><span class="num">01</span>Verantwortlicher</h2>
+    <p>Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:</p>
+    <address>
+      <strong>Ulrich Schinz</strong><br>
+      Staltacher Straße 59A<br>
+      82393 Iffeldorf<br>
+      Deutschland<br>
+      E-Mail: <a href="mailto:hello@agentic-reach.com">hello@agentic-reach.com</a><br>
+      Telefon: <a href="tel:+4988569109743">08856 / 9109743</a>
+    </address>
+
+    <h2 id="allgemeines"><span class="num">02</span>Allgemeines zur Verarbeitung</h2>
+    <p>
+      Wir verarbeiten personenbezogene Daten nach dem Grundsatz der Datenminimierung — also nur,
+      wenn es zur Bereitstellung dieser Website oder zur Bearbeitung Ihrer Anfrage erforderlich ist
+      und eine Rechtsgrundlage nach Art. 6 DSGVO vorliegt.
+    </p>
+    <p>
+      Diese Website verzichtet bewusst auf Tracking, Analyse-Tools, Werbenetzwerke und
+      eingebettete Drittinhalte. Es werden keine Cookies zu Marketing- oder Statistikzwecken gesetzt.
+    </p>
+
+    <h2 id="serverlogs"><span class="num">03</span>Server-Log-Dateien</h2>
+    <p>
+      Beim Aufruf dieser Website erhebt unser Hosting-Provider automatisch Informationen, die Ihr
+      Browser an den Server übermittelt. Dies sind:
+    </p>
+    <ul>
+      <li>IP-Adresse des anfragenden Rechners (anonymisiert bzw. gelöscht nach 7 Tagen)</li>
+      <li>Datum und Uhrzeit der Anfrage</li>
+      <li>Aufgerufene URL bzw. Name der angeforderten Datei</li>
+      <li>HTTP-Statuscode und übertragene Datenmenge</li>
+      <li>Verwendeter Browser (User-Agent) und Betriebssystem</li>
+      <li>Referrer-URL (zuvor besuchte Seite, sofern übermittelt)</li>
+    </ul>
+    <p>
+      Diese Daten sind technisch erforderlich, um die Website auszuliefern, ihre Stabilität und
+      Sicherheit zu gewährleisten und Angriffsversuche aufzuklären.
+      <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).
+      <strong>Speicherdauer:</strong> 7 Tage, danach automatische Löschung. Eine Zusammenführung mit anderen Datenquellen findet nicht statt.
+    </p>
+
+    <h2 id="kontakt"><span class="num">04</span>Kontaktaufnahme per E-Mail</h2>
+    <p>
+      Wenn Sie uns über das Kontaktformular oder per E-Mail kontaktieren, öffnet sich Ihr lokales
+      E-Mail-Programm. Die Daten werden ausschließlich per E-Mail an uns übertragen — diese Website
+      speichert keine Formulareingaben.
+    </p>
+    <p>
+      Wir verarbeiten die in Ihrer E-Mail enthaltenen Daten (Name, E-Mail-Adresse, ggf. Firma,
+      Inhalt Ihrer Nachricht) ausschließlich zur Beantwortung Ihrer Anfrage und zur ggf. daraus
+      entstehenden Geschäftsbeziehung.
+      <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung) bzw.
+      lit. f (berechtigtes Interesse an effektiver Kommunikation).
+      <strong>Speicherdauer:</strong> bis zur Erledigung Ihrer Anfrage, anschließend gemäß den
+      gesetzlichen Aufbewahrungsfristen (in der Regel 6 bzw. 10 Jahre, sofern eine Geschäftsbeziehung
+      entsteht), sonst Löschung nach 12 Monaten.
+    </p>
+
+    <h2 id="kontaktformular"><span class="num">05</span>Kontaktformular (Erstgespräch)</h2>
+    <p>
+      Wenn Sie das Buchungsformular auf dieser Website nutzen, verarbeiten wir folgende Daten:
+    </p>
+    <ul>
+      <li>Name</li>
+      <li>E-Mail-Adresse</li>
+      <li>Firma (optional)</li>
+      <li>Kurzbeschreibung des Themas (optional)</li>
+    </ul>
+    <p>
+      <strong>Zweck:</strong> Bearbeitung Ihrer Kontaktanfrage und Vorbereitung eines Erstgesprächs.<br>
+      <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen).<br>
+      <strong>Übermittlung:</strong> Die Formulardaten werden per SMTP an unseren E-Mail-Dienstleister
+      <em>[PLATZHALTER — Anbieter wird noch eingetragen]</em> übertragen, mit dem ein
+      Auftragsverarbeitungsvertrag gemäß Art. 28 DSGVO besteht. Die Server befinden sich in der EU.<br>
+      <strong>Speicherdauer:</strong> Die Formulareingaben werden vom Webserver nicht persistent
+      gespeichert; die per E-Mail weitergeleiteten Daten werden wie unter Ziffer 04 beschrieben
+      behandelt.<br>
+      <strong>Spam-Schutz:</strong> Wir verwenden einen technischen Honeypot (verstecktes
+      Formularfeld), der automatisierte Spam-Einreichungen erkennt. Es werden dabei keine Cookies
+      gesetzt und kein Drittanbieter-Captcha-Dienst eingebunden.
+    </p>
+
+    <h2 id="hosting"><span class="num">06</span>Hosting</h2>
+    <p>
+      Diese Website wird auf einem Server der <strong>Hetzner Online GmbH</strong>, Industriestr. 25,
+      91710 Gunzenhausen, Deutschland, in einem Rechenzentrum in Helsinki (Finnland, EU) gehostet.
+      Der Betrieb der Anwendung erfolgt durch uns selbst (Container-basiert via Docker) auf einem
+      Cloud-Server bei Hetzner.<br>
+      Mit Hetzner besteht ein Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO.
+      Hetzner verarbeitet die unter Ziffer 03 genannten Daten ausschließlich zur Bereitstellung der
+      Server-Infrastruktur. Eine Übermittlung in Drittländer außerhalb der EU findet nicht statt.
+      Der Hoster verarbeitet die unter Ziffer 03 genannten Daten in unserem Auftrag und ausschließlich zur
+      Bereitstellung des Webservers.
+    </p>
+
+    <h2 id="fonts"><span class="num">07</span>Schriftarten</h2>
+    <p>
+      Diese Website verwendet die Schriftarten <em>Space Grotesk</em>, <em>JetBrains Mono</em> und
+      <em>Fraunces</em>. Die Schriftdateien werden <strong>lokal von unserem Server</strong>
+      ausgeliefert. Es findet <strong>keine</strong> Verbindung zu externen Schrift-Diensten
+      (z.B. Google Fonts) statt — Ihre IP-Adresse wird nicht an Dritte übertragen.
+    </p>
+    <div class="note">
+      <strong>Lizenzhinweis:</strong> Die Schriftarten stehen unter der SIL Open Font License (OFL).
+    </div>
+
+    <h2 id="cookies"><span class="num">08</span>Cookies &amp; Tracking</h2>
+    <p>
+      <strong>Diese Website setzt keine Cookies und verwendet kein Tracking.</strong>
+    </p>
+    <p>
+      Es kommen weder Analyse-Tools (z.B. Google Analytics, Matomo), noch Werbe- oder Social-Media-Pixel,
+      noch Heatmaps oder Session-Recording-Werkzeuge zum Einsatz. Eine Einwilligung über einen
+      Cookie-Banner ist deshalb nicht erforderlich.
+    </p>
+    <div class="note">
+      Sollten wir später analytische Werkzeuge einsetzen, ergänzen wir diese Erklärung um die
+      jeweilige Rechtsgrundlage und holen — soweit erforderlich — vorher Ihre Einwilligung ein.
+    </div>
+
+    <h2 id="rechte"><span class="num">09</span>Ihre Rechte</h2>
+    <p>Sie haben gegenüber uns folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:</p>
+    <ul>
+      <li><strong>Auskunft</strong> (Art. 15 DSGVO) — welche Daten wir über Sie verarbeiten</li>
+      <li><strong>Berichtigung</strong> (Art. 16 DSGVO) — Korrektur unrichtiger Daten</li>
+      <li><strong>Löschung</strong> (Art. 17 DSGVO) — sofern keine Aufbewahrungspflichten entgegenstehen</li>
+      <li><strong>Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO)</li>
+      <li><strong>Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+      <li><strong>Widerspruch</strong> (Art. 21 DSGVO) — gegen Verarbeitungen auf Grundlage berechtigter Interessen</li>
+      <li><strong>Widerruf</strong> (Art. 7 Abs. 3 DSGVO) — einer einmal erteilten Einwilligung mit Wirkung für die Zukunft</li>
+    </ul>
+    <p>
+      Zur Ausübung Ihrer Rechte genügt eine formlose E-Mail an
+      <a href="mailto:hello@agentic-reach.com">hello@agentic-reach.com</a>.
+    </p>
+
+    <h2 id="beschwerde"><span class="num">10</span>Beschwerderecht</h2>
+    <p>
+      Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren, wenn Sie der Auffassung
+      sind, dass die Verarbeitung Ihrer personenbezogenen Daten gegen die DSGVO verstößt
+      (Art. 77 DSGVO). Zuständig ist die Behörde des Bundeslandes Ihres Wohnsitzes oder des
+      mutmaßlichen Verstoßes.<br>
+      Für den Verantwortlichen zuständig:
+      Bayerisches Landesamt für Datenschutzaufsicht (BayLDA), Promenade 18, 91522 Ansbach
+      — <a href="https://www.lda.bayern.de" target="_blank" rel="noopener noreferrer">www.lda.bayern.de</a>.
+    </p>
+
+    <h2 id="aenderungen"><span class="num">11</span>Änderungen dieser Erklärung</h2>
+    <p>
+      Wir passen diese Datenschutzerklärung an, wenn sich rechtliche Vorgaben oder unsere
+      Verarbeitungsprozesse ändern. Es gilt jeweils die auf dieser Seite veröffentlichte Fassung.
+    </p>
+
+    <p style="margin-top: 40px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--mute); letter-spacing: 0.04em;">
+      // Stand: 01.05.2026
+    </p>
+
+  </div>
+</section>
+
+<footer>
+  <div class="row">
+    <span>© 2026 Agentic Reach</span>
+    <div class="links">
+      <a href="index.html">Start</a>
+      <a href="Impressum.html">Impressum</a>
+      <a href="mailto:hello@agentic-reach.com">Kontakt</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -2,3 +2,7 @@
 CLAUDE.md
 .claude/
 DEPLOY.md
+
+# Secrets
+.env*
+!.env.example

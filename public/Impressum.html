@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Impressum — Agentic Reach</title>
+<link rel="stylesheet" href="fonts/fonts.css" />
+<style>
+  :root {
+    --coral:  #FF7A6B;
+    --plum:   #3D2B5C;
+    --yellow: #F4C84A;
+    --ink:    #1B1428;
+    --bg:     #FBF6EE;
+    --bg-alt: #F4ECE0;
+    --paper:  #FFFFFF;
+    --mute:   rgba(27, 20, 40, 0.62);
+    --hairline: rgba(27, 20, 40, 0.10);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  a { color: inherit; }
+  .container { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--mute);
+  }
+  .eyebrow .slash { color: var(--coral); font-weight: 600; }
+
+  /* Nav */
+  nav.top {
+    border-bottom: 1px solid var(--hairline);
+    background: var(--bg);
+  }
+  nav.top .row {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px; max-width: 1240px; margin: 0 auto; padding: 0 32px;
+  }
+  nav.top .brand {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 500; font-size: 17px; letter-spacing: -0.02em;
+    text-decoration: none;
+  }
+  nav.top .right { display: flex; align-items: center; gap: 22px; }
+  nav.top .lang {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: var(--mute); display: inline-flex; gap: 6px;
+    letter-spacing: 0.04em;
+  }
+  nav.top .lang a { text-decoration: none; color: var(--mute); }
+  nav.top .lang a.active { color: var(--ink); font-weight: 600; }
+  nav.top .lang a:hover { color: var(--coral); }
+  nav.top .lang span { color: var(--hairline); }
+  nav.top .back {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px;
+    color: var(--mute); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  nav.top .back:hover { color: var(--ink); }
+
+  /* Hero */
+  section.hero {
+    padding: 80px 0 40px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  section.hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500; font-size: clamp(40px, 5vw, 60px);
+    letter-spacing: -0.035em; line-height: 1.0;
+    margin: 22px 0 18px;
+  }
+  section.hero h1 em {
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-weight: 300; color: var(--plum);
+  }
+  section.hero p {
+    font-size: 17px; line-height: 1.55; color: var(--mute);
+    margin: 0; max-width: 60ch;
+  }
+
+  /* Legal body */
+  section.legal { padding: 60px 0 100px; }
+  .legal h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500; font-size: 22px; letter-spacing: -0.02em;
+    margin: 44px 0 14px;
+  }
+  .legal h2:first-child { margin-top: 0; }
+  .legal h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500; font-size: 16px; letter-spacing: -0.01em;
+    margin: 28px 0 8px;
+  }
+  .legal p, .legal li {
+    font-size: 16px; line-height: 1.65; color: var(--ink);
+  }
+  .legal p { margin: 0 0 14px; }
+  .legal ul { padding-left: 20px; margin: 0 0 14px; }
+  .legal a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--coral); text-underline-offset: 3px; }
+  .legal a:hover { color: var(--coral); }
+  .legal address {
+    font-style: normal; line-height: 1.7;
+    padding: 18px 22px; border-radius: 12px;
+    background: var(--paper); border: 1px solid var(--hairline);
+    margin: 0 0 14px;
+  }
+  .todo {
+    background: rgba(244,200,74,.18); color: var(--ink);
+    padding: 1px 6px; border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.92em;
+  }
+
+  /* Footer */
+  footer {
+    background: var(--ink); color: var(--bg);
+    padding: 32px 0;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: 0.04em;
+  }
+  footer .row {
+    display: flex; justify-content: space-between; align-items: center;
+    max-width: 1240px; margin: 0 auto; padding: 0 32px;
+    color: rgba(251,246,238,.6);
+  }
+  footer a { color: var(--bg); opacity: .8; text-decoration: none; }
+  footer a:hover { opacity: 1; }
+  footer .links { display: flex; gap: 24px; }
+
+  @media (max-width: 700px) {
+    .container { padding: 0 20px; }
+    section.hero { padding: 50px 0 30px; }
+    nav.top .right { gap: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="row">
+    <a href="index.html" class="brand">
+      <svg width="64" height="32" viewBox="0 0 64 32" fill="none">
+        <g stroke="#3D2B5C" stroke-width="1.4" fill="none" opacity=".55">
+          <line x1="32" y1="14" x2="47.59" y2="23" /><line x1="47.59" y1="23" x2="47.59" y2="41" />
+          <line x1="32" y1="14" x2="32" y2="-4" /><line x1="32" y1="14" x2="16.41" y2="23" />
+          <line x1="16.41" y1="23" x2="16.41" y2="41" /><line x1="32" y1="14" x2="32" y2="32" />
+        </g>
+        <circle cx="32" cy="14" r="3.6" fill="#3D2B5C"/>
+        <circle cx="47.59" cy="23" r="2.8" fill="#3D2B5C"/>
+        <circle cx="16.41" cy="23" r="2.8" fill="#3D2B5C"/>
+        <circle cx="32" cy="14" r="4.4" fill="#FF7A6B"/>
+        <circle cx="51.59" cy="19" r="2" fill="#F4C84A"/>
+      </svg>
+      <span>Agentic Reach</span>
+    </a>
+    <div class="right">
+      <div class="lang">
+        <a href="Impressum.html" class="active">DE</a><span>/</span><a href="Imprint.html">EN</a>
+      </div>
+      <a href="index.html" class="back">← zur Startseite</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow"><span class="slash">//</span>&nbsp;rechtliches</span>
+    <h1>Impressum</h1>
+    <p>Angaben gemäß §5 DDG (Digitale-Dienste-Gesetz) und §18 Abs. 2 MStV.</p>
+  </div>
+</section>
+
+<section class="legal">
+  <div class="container">
+
+    <h2>Anbieter</h2>
+    <address>
+      <strong>Ulrich Schinz</strong><br>
+      Staltacher Straße 59A<br>
+      82393 Iffeldorf<br>
+      Deutschland
+    </address>
+
+    <h2>Kontakt</h2>
+    <p>
+      E-Mail: <a href="mailto:hello@agentic-reach.com">hello@agentic-reach.com</a><br>
+      Telefon: <a href="tel:+4988569109743">08856 / 9109743</a>
+    </p>
+
+    <h2>Verantwortlich für den Inhalt nach §18 Abs. 2 MStV</h2>
+    <address>
+      Ulrich Schinz<br>
+      Staltacher Straße 59A<br>
+      82393 Iffeldorf
+    </address>
+
+    <h2>Berufsbezeichnung &amp; Tätigkeit</h2>
+    <p>
+      Beratung, Konzeption und Implementierung von Lösungen zur Automatisierung von
+      Geschäftsprozessen unter Einsatz von Künstlicher Intelligenz (Agentic AI) sowie
+      IT-Dienstleistungen.<br>
+      Verliehen in: Deutschland<br>
+      <em>(Es handelt sich um eine gewerbliche Tätigkeit ohne Kammerpflicht; eine Aufsichtsbehörde ist nicht anzugeben.)</em>
+    </p>
+
+    <h2>EU-Streitschlichtung</h2>
+    <p>
+      Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+      <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr</a>.<br>
+      Unsere E-Mail-Adresse finden Sie oben im Impressum.
+    </p>
+
+    <h2>Verbraucher­streit­beilegung / Universal­schlichtungsstelle</h2>
+    <p>
+      Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+      Verbraucherschlichtungsstelle teilzunehmen.
+    </p>
+
+    <h2>Haftung für Inhalte</h2>
+    <p>
+      Als Diensteanbieter sind wir gemäß §7 Abs.1 DDG für eigene Inhalte auf diesen Seiten nach
+      den allgemeinen Gesetzen verantwortlich. Nach §§8 bis 10 DDG sind wir als Diensteanbieter
+      jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen
+      oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen
+      zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen
+      bleiben hiervon unberührt.
+    </p>
+
+    <h2>Haftung für Links</h2>
+    <p>
+      Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss
+      haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die
+      Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten
+      verantwortlich.
+    </p>
+
+    <h2>Urheberrecht</h2>
+    <p>
+      Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem
+      deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der
+      Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des
+      jeweiligen Autors bzw. Erstellers.
+    </p>
+
+    <p style="margin-top: 40px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--mute); letter-spacing: 0.04em;">
+      // Stand: 01.05.2026
+    </p>
+
+  </div>
+</section>
+
+<footer>
+  <div class="row">
+    <span>© 2026 Agentic Reach</span>
+    <div class="links">
+      <a href="index.html">Start</a>
+      <a href="Datenschutz.html">Datenschutz</a>
+      <a href="mailto:hello@agentic-reach.com">Kontakt</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
