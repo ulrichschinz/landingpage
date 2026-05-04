@@ -1248,6 +1248,7 @@
         </div>
         <input type="text" name="website" tabindex="-1" autocomplete="off"
                style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true">
+        <input type="hidden" name="_t" id="bk_t">
       </form>
       <div id="bk_success" hidden style="padding:24px 0;">
         <h3 style="margin:0 0 8px;" data-i18n="bk_success_h">Danke! Ihre Anfrage ist angekommen.</h3>
@@ -1535,6 +1536,7 @@
     function open(e) {
       if (e) e.preventDefault();
       lastFocus = document.activeElement;
+      document.getElementById('bk_t').value = Date.now();
       backdrop.hidden = false;
       // next frame for transition
       requestAnimationFrame(() => backdrop.classList.add('open'));
@@ -1572,6 +1574,7 @@
         company: (fd.get('company') || '').toString().trim(),
         topic: (fd.get('topic') || '').toString().trim(),
         website: (fd.get('website') || '').toString(),
+        _t: (fd.get('_t') || '').toString(),
         lang,
       };
       if (!payload.name || !payload.email) {

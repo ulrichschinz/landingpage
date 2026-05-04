@@ -22,9 +22,10 @@ const transporter = nodemailer.createTransport({
 });
 
 app.post('/api/booking', async (req, res) => {
-  const { name, email, company, topic, lang, website } = req.body || {};
+  const { name, email, company, topic, lang, website, _t } = req.body || {};
   console.log('[booking] ip=%s name=%s email=%s honeypot=%s', req.ip, name, email, !!website);
   if (website) return res.status(200).json({ ok: true }); // honeypot
+  if (!_t || Date.now() - Number(_t) < 2000) return res.status(200).json({ ok: true }); // timing check
   if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     console.log('[booking] validation failed');
     return res.status(400).json({ ok: false, error: 'invalid' });
