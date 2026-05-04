@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .bg { fill: #3D2B5C }
+    .fg { fill: #FF7A6B }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #FF7A6B }
+      .fg { fill: #1B1428 }
+    }
+  </style>
+  <rect width="32" height="32" rx="5" class="bg"/>
+  <text x="16" y="23"
+    font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+    font-size="21" font-weight="800" text-anchor="middle"
+    class="fg">A</text>
+</svg>
