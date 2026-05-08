@@ -392,5 +392,15 @@
   </div>
 </footer>
 
+<script>
+  (function () {
+    var pageLang = 'de';
+    try {
+      var p = new URLSearchParams(window.location.search).get('lang');
+      if (p === 'en') { window.location.replace('Privacy.html' + window.location.hash); return; }
+    } catch (e) {}
+    try { localStorage.setItem('ar_lang', pageLang); } catch (e) {}
+  })();
+</script>
 </body>
 </html>

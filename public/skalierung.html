@@ -826,8 +826,8 @@
   <div class="container row">
     <span>© 2026 Agentic Reach</span>
     <span style="display: inline-flex; gap: 24px;">
-      <a href="Impressum.html">Impressum</a>
-      <a href="Datenschutz.html">Datenschutz</a>
+      <a href="Impressum.html" data-legal-link="imprint">Impressum</a>
+      <a href="Datenschutz.html" data-legal-link="privacy">Datenschutz</a>
       <a href="mailto:hello@agentic-reach.com">hello@agentic-reach.com</a>
     </span>
   </div>
@@ -999,6 +999,7 @@ const I18N = {
 };
 
 function applyLang(lang) {
+  if (lang !== 'de' && lang !== 'en') lang = 'de';
   document.documentElement.lang = lang;
   const dict = I18N[lang] || I18N.de;
   document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -1008,14 +1009,40 @@ function applyLang(lang) {
   document.querySelectorAll('[data-lang-btn]').forEach(b => {
     b.classList.toggle('active', b.getAttribute('data-lang-btn') === lang);
   });
+  document.querySelectorAll('[data-legal-link]').forEach(a => {
+    const kind = a.getAttribute('data-legal-link');
+    if (kind === 'imprint') {
+      a.href = lang === 'en' ? 'Imprint.html' : 'Impressum.html';
+      a.textContent = lang === 'en' ? 'Imprint' : 'Impressum';
+    }
+    if (kind === 'privacy') {
+      a.href = lang === 'en' ? 'Privacy.html' : 'Datenschutz.html';
+      a.textContent = lang === 'en' ? 'Privacy' : 'Datenschutz';
+    }
+  });
   try { localStorage.setItem('ar_lang', lang); } catch (e) {}
+  try {
+    const url = new URL(window.location.href);
+    url.searchParams.set('lang', lang);
+    window.history.replaceState({}, '', url);
+  } catch (e) {}
 }
 document.querySelectorAll('[data-lang-btn]').forEach(b => {
   b.addEventListener('click', () => applyLang(b.getAttribute('data-lang-btn')));
 });
-let initial = 'de';
-try { initial = localStorage.getItem('ar_lang') || 'de'; } catch (e) {}
-applyLang(initial);
+// Initial language: URL ?lang= > localStorage > default 'de'
+let initial = null;
+try {
+  const p = new URLSearchParams(window.location.search).get('lang');
+  if (p === 'de' || p === 'en') initial = p;
+} catch (e) {}
+if (!initial) {
+  try {
+    const s = localStorage.getItem('ar_lang');
+    if (s === 'de' || s === 'en') initial = s;
+  } catch (e) {}
+}
+applyLang(initial || 'de');
 </script>
 
 </body>

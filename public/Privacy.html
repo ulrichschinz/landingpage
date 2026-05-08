@@ -395,5 +395,15 @@
   </div>
 </footer>
 
+<script>
+  (function () {
+    var pageLang = 'en';
+    try {
+      var p = new URLSearchParams(window.location.search).get('lang');
+      if (p === 'de') { window.location.replace('Datenschutz.html' + window.location.hash); return; }
+    } catch (e) {}
+    try { localStorage.setItem('ar_lang', pageLang); } catch (e) {}
+  })();
+</script>
 </body>
 </html>

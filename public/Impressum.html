@@ -266,5 +266,18 @@
   </div>
 </footer>
 
+<script>
+  // Sync language with the rest of the site.
+  // - If URL ?lang= asks for the OTHER language, redirect to the counterpart page.
+  // - Otherwise persist this page's language so subsequent navigation keeps it.
+  (function () {
+    var pageLang = 'de';
+    try {
+      var p = new URLSearchParams(window.location.search).get('lang');
+      if (p === 'en') { window.location.replace('Imprint.html' + window.location.hash); return; }
+    } catch (e) {}
+    try { localStorage.setItem('ar_lang', pageLang); } catch (e) {}
+  })();
+</script>
 </body>
 </html>
