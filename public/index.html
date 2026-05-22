@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Agentic Reach — for what's next</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="stylesheet" href="fonts/fonts.css" />
+<script src="lang.js"></script>
 <style>
   :root {
     --coral:  #FF7A6B;
@@ -380,14 +381,24 @@
     padding: 110px 0 100px;
     background: var(--bg);
   }
-  .founder-grid {
-    display: grid;
-    grid-template-columns: 360px 1fr;
-    gap: 64px;
-    align-items: start;
+  .founders-intro {
+    max-width: 880px;
+    margin: 0 auto 56px;
+    text-align: center;
   }
-  .founder-portrait {
-    position: sticky; top: 90px;
+  .founders-intro .eyebrow {
+    justify-content: center;
+  }
+  .founders-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: start;
+    margin-top: 8px;
+  }
+  .founder-card {
+    display: flex; flex-direction: column;
+    gap: 22px;
   }
   .portrait-frame {
     width: 100%;
@@ -399,7 +410,7 @@
   }
   .portrait-frame svg { width: 100%; height: 100%; display: block; }
   .founder-id {
-    margin-top: 22px;
+    margin-top: 0;
     display: flex; flex-direction: column; gap: 4px;
   }
   .founder-name {
@@ -427,24 +438,35 @@
   }
   .founder-contact a:hover { border-color: var(--coral); color: var(--coral); }
 
-  .founder-story h2 {
+  .founders-intro h2 {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 500;
     font-size: clamp(34px, 4vw, 52px);
     line-height: 1.04; letter-spacing: -0.03em;
-    margin: 14px 0 32px;
+    margin: 14px 0 0;
     text-wrap: balance;
   }
-  .founder-story h2 em {
+  .founders-intro h2 em {
     font-family: 'Fraunces', serif; font-style: italic;
     font-weight: 300; color: var(--plum);
   }
   .founder-quote {
-    margin: 0 0 36px;
-    padding: 28px 30px;
+    margin: 0 auto 56px;
+    padding: 32px 36px;
     background: var(--bg-cool);
     border-left: 3px solid var(--coral);
     border-radius: 4px 14px 14px 4px;
+    max-width: 880px;
+  }
+  .founder-card .founder-paras {
+    margin-top: 4px;
+  }
+  .founder-card .founder-paras p {
+    max-width: none;
+  }
+  .founder-card .founder-contact {
+    padding-top: 12px;
+    border-top: 1px solid var(--hairline);
   }
   .founder-quote p {
     font-family: 'Fraunces', serif;
@@ -807,8 +829,8 @@
     section.hero .visual { max-width: 480px; justify-self: start; }
     .section-head { grid-template-columns: 1fr; gap: 24px; }
     .services-grid { grid-template-columns: 1fr; }
-    .founder-grid { grid-template-columns: 1fr; gap: 40px; }
-    .founder-portrait { position: static; }
+    .founders-pair { grid-template-columns: 1fr 1fr; gap: 48px; }
+    .founders-intro { margin-bottom: 40px; }
     .skills-grid { grid-template-columns: 1fr; gap: 24px; }
     .team-grid { grid-template-columns: 1fr 1fr; }
     footer .grid { grid-template-columns: 1fr 1fr; }
@@ -823,6 +845,7 @@
     .form-grid { grid-template-columns: 1fr; }
     .modal-head { padding: 24px 22px 0; }
     .modal-body { padding: 12px 22px 24px; }
+    .founders-pair { grid-template-columns: 1fr; gap: 56px; }
   }
 </style>
 </head>
@@ -993,26 +1016,26 @@
     <div class="path-head">
       <div>
         <span class="eyebrow"><span class="slash">//</span>&nbsp;<span data-i18n="path_eyebrow">der pfad</span></span>
-        <h2 data-i18n="path_h2">Ein Use Case. Dann zwei. Dann das <em>ganze Unternehmen</em>.</h2>
+        <h2 data-i18n="path_h2">Vom ersten Agenten zur <em>agentic Organization</em> — gemeinsam, Schritt für Schritt.</h2>
       </div>
-      <p data-i18n="path_lead">Wie aus einem konkreten Agenten ein Wissensbestand wird, und aus dem Wissensbestand eine unternehmensweite Plattform — der Move, den wir mit unseren Kunden gehen.</p>
+      <p data-i18n="path_lead">Drei Stufen wachsender Reife. Wir starten mit Strategie und Klarheit, bauen den ersten produktiven Agenten gemeinsam mit Ihren Leuten — und übergeben Schritt für Schritt das Steuer. Kein Vendor-Lockin, kein Geheimwissen.</p>
     </div>
 
     <div class="path-grid">
       <a class="path-card" href="skalierung.html#stage-1">
         <div class="path-num">// 01</div>
-        <h3 data-i18n="path_s1_h">Incident Management</h3>
-        <p data-i18n="path_s1_p">Ein Agent analysiert Alert, Logs und Code, durchsucht Tickets und schlägt eine Lösung vor — der Mensch entscheidet.</p>
+        <h3 data-i18n="path_s1_h">Orientierung &amp; erste Agenten</h3>
+        <p data-i18n="path_s1_p">Use-Case-Landkarte, Priorisierung, ein erster Agent live. Ihre Leute sind von Tag eins dabei — am Whiteboard, im Code, in den Architektur-Entscheidungen.</p>
       </a>
       <a class="path-card" href="skalierung.html#stage-2">
         <div class="path-num">// 02</div>
-        <h3 data-i18n="path_s2_h">Onboarding-Automatisierung</h3>
-        <p data-i18n="path_s2_p">Der Knowledge-Graph aus Stufe 1 wird Onboarding-Quelle. Neue Mitarbeiter:innen werden in Tagen produktiv.</p>
+        <h3 data-i18n="path_s2_h">Wissensfundament</h3>
+        <p data-i18n="path_s2_p">Aus einem Agenten wird ein geteilter Knowledge-Layer. Mehrere Bereiche, eine Wahrheit — gebaut zusammen mit Ihren Entwickler:innen und Fachleuten.</p>
       </a>
       <a class="path-card" href="skalierung.html#stage-3">
         <div class="path-num">// 03</div>
-        <h3 data-i18n="path_s3_h">Agentic Layer</h3>
-        <p data-i18n="path_s3_p">Sales, Marketing, Datenschutz, Finance — alle Abteilungen auf demselben Wissensfundament.</p>
+        <h3 data-i18n="path_s3_h">Agentic Organization</h3>
+        <p data-i18n="path_s3_p">Rollen, Strukturen, Governance werden agentic-fähig. Wir begleiten Führung und Teams durch den Wandel — und übergeben das System Schritt für Schritt.</p>
       </a>
     </div>
 
@@ -1021,7 +1044,7 @@
         Den ganzen Pfad lesen
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <span class="path-cta-meta" data-i18n="path_cta_meta">+ Querschnitt: Security &amp; Compliance Scanner</span>
+      <span class="path-cta-meta" data-i18n="path_cta_meta">// Querschnitt: Strategie · Change · Technik — auf allen Stufen.</span>
     </div>
   </div>
 </section>
@@ -1029,57 +1052,81 @@
 <!-- ───── Founder ───── -->
 <section class="founder" id="about">
   <div class="container">
-    <div class="founder-grid">
-      <!-- LEFT: Portrait + Identity -->
-      <aside class="founder-portrait">
+
+    <div class="founders-intro">
+      <span class="eyebrow"><span class="slash">//</span>&nbsp;<span data-i18n="fdr_eyebrow">das gründungsteam</span></span>
+      <h2 data-i18n="fdr_h2">Hinter Agentic Reach stehen <em>zwei Gründer</em> — Technologie und Mensch, gemeinsam gedacht.</h2>
+    </div>
+
+    <blockquote class="founder-quote">
+      <p data-i18n="fdr_quote">„KI wird nicht das Unternehmen retten. Aber Unternehmen, die jetzt lernen, mit Agenten zu arbeiten — und ihre Menschen darauf vorzubereiten — werden in fünf Jahren noch da sein."</p>
+      <cite>— Ulrich Schinz &amp; Nora Kraus</cite>
+    </blockquote>
+
+    <div class="founders-pair">
+
+      <!-- Ulrich -->
+      <article class="founder-card">
         <div class="portrait-frame">
-          <img src="uploads/ulrich-portrait-coral.jpg" alt="Ulrich Schinz" style="width:100%; height:100%; object-fit: cover; display:block;" />
+          <img src="ulrich-portrait-new.jpg" alt="Ulrich Schinz" style="width:100%; height:100%; object-fit: cover; display:block;" />
         </div>
         <div class="founder-id">
           <div class="founder-name">Ulrich Schinz</div>
-          <div class="founder-role" data-i18n="fdr_role">Gründer · Agentic Reach</div>
-          <div class="founder-contact">
-            <a href="mailto:ulrich@agentic-reach.com">ulrich@agentic-reach.com</a>
-            <a href="https://www.linkedin.com/company/agentic-reach" target="_blank" rel="noopener noreferrer" data-i18n="fdr_li">LinkedIn ↗</a>
-          </div>
+          <div class="founder-role" data-i18n="fdr_u_role">Co-Founder · Technologie &amp; Strategie</div>
         </div>
-      </aside>
-
-      <!-- RIGHT: Story -->
-      <div class="founder-story">
-        <span class="eyebrow"><span class="slash">//</span>&nbsp;<span data-i18n="fdr_eyebrow">der gründer</span></span>
-        <h2 data-i18n="fdr_h2">Hinter Agentic Reach steht <em>ein Mensch</em> — und ein klarer Standpunkt.</h2>
-
-        <blockquote class="founder-quote">
-          <p data-i18n="fdr_quote">„KI wird nicht das Unternehmen retten. Aber Unternehmen, die jetzt lernen, mit Agenten zu arbeiten, werden in fünf Jahren noch da sein."</p>
-          <cite>— Ulrich Schinz</cite>
-        </blockquote>
-
         <div class="founder-paras">
-          <p data-i18n="fdr_p1">
+          <p data-i18n="fdr_u_p1">
             Ulrich kommt nicht aus dem Hype. Er hat KI und Agenten produktiv im Einsatz erlebt, bevor das Wort en vogue wurde — und kennt aus eigener Hand, was es heißt, Software zu bauen, Cloud-Infrastruktur aufzusetzen und ein Team auf Augenhöhe durch ein Projekt zu bringen. Verantwortung für Budgets, Roadmaps und Menschen inklusive.
           </p>
-          <p data-i18n="fdr_p2">
+          <p data-i18n="fdr_u_p2">
             Aus dieser Mischung — Mittelstands-Realität, technisches Tiefenverständnis, Erfahrung mit Veränderungsprozessen — ist Agentic Reach entstanden. Nicht als KI-Buzzword-Beratung. Sondern als Begleiter für Unternehmen, die wissen wollen, was wirklich geht.
           </p>
         </div>
+        <div class="founder-contact">
+          <a href="mailto:ulrich@agentic-reach.com">ulrich@agentic-reach.com</a>
+          <a href="https://www.linkedin.com/in/ulrich-schinz-424455115/" target="_blank" rel="noopener noreferrer" data-i18n="fdr_li">LinkedIn ↗</a>
+        </div>
+      </article>
 
-        <div class="why-buy">
-          <div class="why-h" data-i18n="fdr_why_h"><span class="slash">//</span> was Sie konkret bekommen</div>
-          <div class="why-points">
-            <div class="why-point">
-              <div class="why-num">01</div>
-              <div class="why-text"><strong data-i18n="fdr_why1_h">Sofort: ein Agent, der heute schon arbeitet.</strong> <span data-i18n="fdr_why1_p">E-Mails lesen und beantworten. Termine vorschlagen. Dokumente einsortieren. Eine persönliche Assistenz für Geschäftsführung — oder jede Rolle. Produktiv in Wochen.</span></div>
-            </div>
-            <div class="why-point">
-              <div class="why-num">02</div>
-              <div class="why-text"><strong data-i18n="fdr_why2_h">Dann: ein Plan, der skaliert.</strong> <span data-i18n="fdr_why2_p">Prozesse analysieren, Optionen bewerten, Prioritäten setzen. Damit Sie dort investieren, wo es zählt.</span></div>
-            </div>
-            <div class="why-point">
-              <div class="why-num">03</div>
-              <div class="why-text"><strong data-i18n="fdr_why3_h">Schließlich: ein Unternehmen, neu gedacht.</strong> <span data-i18n="fdr_why3_p">Strukturen, Rollen und Abläufe, in denen Agenten von Anfang an mitgedacht sind. Nicht KI als Aufsatz — sondern eine Organisation, die mit Agenten arbeitet, weil sie dafür gebaut ist.</span></div>
-            </div>
-          </div>
+      <!-- Nora -->
+      <article class="founder-card">
+        <div class="portrait-frame">
+          <img src="nora-portrait-coral.png" alt="Nora Kraus" style="width:100%; height:100%; object-fit: cover; display:block;" />
+        </div>
+        <div class="founder-id">
+          <div class="founder-name">Nora Kraus</div>
+          <div class="founder-role" data-i18n="fdr_n_role">Co-Founder · Menschen &amp; Transformation</div>
+        </div>
+        <div class="founder-paras">
+          <p data-i18n="fdr_n_p1">
+            Nora bringt die andere Hälfte mit: Menschen, Organisation, Veränderung. Über 15 Jahre HR-Erfahrung in wachsenden Tech-Unternehmen — von Cloudreach über FRAMOS bis zu Interim-Mandaten als Chief People Officer. Sie weiß, wie sich Strukturen verschieben, wenn Werkzeuge wechseln — und wie Teams dabei mitkommen.
+          </p>
+          <p data-i18n="fdr_n_p2">
+            Mit ontoHR, ihrer Boutique-Beratung, begleitet sie seit 2022 Führungsteams durch Transformation. Bei Agentic Reach sorgt sie dafür, dass Agenten nicht neben den Menschen entstehen — sondern mit ihnen. Strategie, Rollen, Befähigung — damit aus neuer Technologie auch neue Arbeit wird.
+          </p>
+        </div>
+        <div class="founder-contact">
+          <a href="mailto:nora@agentic-reach.com">nora@agentic-reach.com</a>
+          <a href="https://www.linkedin.com/in/hrnorakraus" target="_blank" rel="noopener noreferrer" data-i18n="fdr_li">LinkedIn ↗</a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="why-buy">
+      <div class="why-h" data-i18n="fdr_why_h"><span class="slash">//</span> was Sie konkret bekommen</div>
+      <div class="why-points">
+        <div class="why-point">
+          <div class="why-num">01</div>
+          <div class="why-text"><strong data-i18n="fdr_why1_h">Sofort: ein Agent, der heute schon arbeitet.</strong> <span data-i18n="fdr_why1_p">E-Mails lesen und beantworten. Termine vorschlagen. Dokumente einsortieren. Eine persönliche Assistenz für Geschäftsführung — oder jede Rolle. Produktiv in Wochen.</span></div>
+        </div>
+        <div class="why-point">
+          <div class="why-num">02</div>
+          <div class="why-text"><strong data-i18n="fdr_why2_h">Dann: ein Plan, der skaliert.</strong> <span data-i18n="fdr_why2_p">Prozesse analysieren, Optionen bewerten, Prioritäten setzen. Damit Sie dort investieren, wo es zählt.</span></div>
+        </div>
+        <div class="why-point">
+          <div class="why-num">03</div>
+          <div class="why-text"><strong data-i18n="fdr_why3_h">Schließlich: ein Unternehmen, neu gedacht.</strong> <span data-i18n="fdr_why3_p">Strukturen, Rollen und Abläufe, in denen Agenten von Anfang an mitgedacht sind. Nicht KI als Aufsatz — sondern eine Organisation, die mit Agenten arbeitet, weil sie dafür gebaut ist.</span></div>
         </div>
       </div>
     </div>
@@ -1175,7 +1222,7 @@
         <ul>
           <li><a href="mailto:hello@agentic-reach.com">hello@agentic-reach.com</a></li>
           <li><a href="#" data-i18n="ftr_call" data-open-booking>Erstgespräch buchen</a></li>
-          <li><a href="https://www.linkedin.com/company/agentic-reach" target="_blank" rel="noopener noreferrer" data-i18n="ftr_linkedin">LinkedIn</a></li>
+          <li><a href="https://www.linkedin.com/in/ulrich-schinz-424455115/" target="_blank" rel="noopener noreferrer" data-i18n="ftr_linkedin">LinkedIn</a></li>
         </ul>
       </div>
 
@@ -1272,16 +1319,16 @@
       nav_contact: 'Kontakt',
       nav_cta: 'Erstgespräch buchen',
       path_eyebrow: 'der pfad',
-      path_h2: 'Ein Use Case. Dann zwei. Dann das <em>ganze Unternehmen</em>.',
-      path_lead: 'Wie aus einem konkreten Agenten ein Wissensbestand wird, und aus dem Wissensbestand eine unternehmensweite Plattform — der Move, den wir mit unseren Kunden gehen.',
-      path_s1_h: 'Incident Management',
-      path_s1_p: 'Ein Agent analysiert Alert, Logs und Code, durchsucht Tickets und schlägt eine Lösung vor — der Mensch entscheidet.',
-      path_s2_h: 'Onboarding-Automatisierung',
-      path_s2_p: 'Der Knowledge-Graph aus Stufe 1 wird Onboarding-Quelle. Neue Mitarbeiter:innen werden in Tagen produktiv.',
-      path_s3_h: 'Agentic Layer',
-      path_s3_p: 'Sales, Marketing, Datenschutz, Finance — alle Abteilungen auf demselben Wissensfundament.',
+      path_h2: 'Vom ersten Agenten zur <em>agentic Organization</em> — gemeinsam, Schritt für Schritt.',
+      path_lead: 'Drei Stufen wachsender Reife. Wir starten mit Strategie und Klarheit, bauen den ersten produktiven Agenten gemeinsam mit Ihren Leuten — und übergeben Schritt für Schritt das Steuer. Kein Vendor-Lockin, kein Geheimwissen.',
+      path_s1_h: 'Orientierung & erste Agenten',
+      path_s1_p: 'Use-Case-Landkarte, Priorisierung, ein erster Agent live. Ihre Leute sind von Tag eins dabei — am Whiteboard, im Code, in den Architektur-Entscheidungen.',
+      path_s2_h: 'Wissensfundament',
+      path_s2_p: 'Aus einem Agenten wird ein geteilter Knowledge-Layer. Mehrere Bereiche, eine Wahrheit — gebaut zusammen mit Ihren Entwickler:innen und Fachleuten.',
+      path_s3_h: 'Agentic Organization',
+      path_s3_p: 'Rollen, Strukturen, Governance werden agentic-fähig. Wir begleiten Führung und Teams durch den Wandel — und übergeben das System Schritt für Schritt.',
       path_cta: 'Den ganzen Pfad lesen',
-      path_cta_meta: '+ Querschnitt: Security &amp; Compliance Scanner',
+      path_cta_meta: '// Querschnitt: Strategie · Change · Technik — auf allen Stufen.',
       hero_eyebrow: "for what's next",
       hero_h1: 'Wer heute gestaltet, <em>definiert morgen</em>.',
       hero_lead: 'Wir helfen Mittelstand und gewachsenen Unternehmen, KI-Agenten produktiv einzusetzen — von der ersten Idee über das Change-Management bis zur technischen Umsetzung.',
@@ -1319,13 +1366,16 @@
       prn3_h: 'Übergeben, nicht abhängig machen.',
       prn3_p: 'Am Ende soll Ihr Team die Agenten verstehen, betreiben und weiterentwickeln können — mit oder ohne uns.',
       ftr_about: 'Beratung und Umsetzung für Unternehmen, die KI-Agenten produktiv einsetzen wollen — vom Use-Case bis zum Betrieb.',
-      fdr_eyebrow: 'der gründer',
-      fdr_role: 'Gründer · Agentic Reach',
+      fdr_eyebrow: 'das gründungsteam',
       fdr_li: 'LinkedIn ↗',
-      fdr_h2: 'Hinter Agentic Reach steht <em>ein Mensch</em> — und ein klarer Standpunkt.',
-      fdr_quote: '„KI wird nicht das Unternehmen retten. Aber Unternehmen, die jetzt lernen, mit Agenten zu arbeiten, werden in fünf Jahren noch da sein.“',
-      fdr_p1: 'Ulrich kommt nicht aus dem Hype. Er hat KI und Agenten produktiv im Einsatz erlebt, bevor das Wort en vogue wurde — und kennt aus eigener Hand, was es heißt, Software zu bauen, Cloud-Infrastruktur aufzusetzen und ein Team auf Augenhöhe durch ein Projekt zu bringen. Verantwortung für Budgets, Roadmaps und Menschen inklusive.',
-      fdr_p2: 'Aus dieser Mischung — Mittelstands-Realität, technisches Tiefenverständnis, Erfahrung mit Veränderungsprozessen — ist Agentic Reach entstanden. Nicht als KI-Buzzword-Beratung. Sondern als Begleiter für Unternehmen, die wissen wollen, was wirklich geht.',
+      fdr_h2: 'Hinter Agentic Reach stehen <em>zwei Gründer</em> — Technologie und Mensch, gemeinsam gedacht.',
+      fdr_quote: '„KI wird nicht das Unternehmen retten. Aber Unternehmen, die jetzt lernen, mit Agenten zu arbeiten — und ihre Menschen darauf vorzubereiten — werden in fünf Jahren noch da sein.“',
+      fdr_u_role: 'Co-Founder · Technologie & Strategie',
+      fdr_u_p1: 'Ulrich kommt nicht aus dem Hype. Er hat KI und Agenten produktiv im Einsatz erlebt, bevor das Wort en vogue wurde — und kennt aus eigener Hand, was es heißt, Software zu bauen, Cloud-Infrastruktur aufzusetzen und ein Team auf Augenhöhe durch ein Projekt zu bringen. Verantwortung für Budgets, Roadmaps und Menschen inklusive.',
+      fdr_u_p2: 'Aus dieser Mischung — Mittelstands-Realität, technisches Tiefenverständnis, Erfahrung mit Veränderungsprozessen — ist Agentic Reach entstanden. Nicht als KI-Buzzword-Beratung. Sondern als Begleiter für Unternehmen, die wissen wollen, was wirklich geht.',
+      fdr_n_role: 'Co-Founder · Menschen & Transformation',
+      fdr_n_p1: 'Nora bringt die andere Hälfte mit: Menschen, Organisation, Veränderung. Über 15 Jahre HR-Erfahrung in wachsenden Tech-Unternehmen — von Cloudreach über FRAMOS bis zu Interim-Mandaten als Chief People Officer. Sie weiß, wie sich Strukturen verschieben, wenn Werkzeuge wechseln — und wie Teams dabei mitkommen.',
+      fdr_n_p2: 'Mit ontoHR, ihrer Boutique-Beratung, begleitet sie seit 2022 Führungsteams durch Transformation. Bei Agentic Reach sorgt sie dafür, dass Agenten nicht neben den Menschen entstehen — sondern mit ihnen. Strategie, Rollen, Befähigung — damit aus neuer Technologie auch neue Arbeit wird.',
       fdr_hard_h: 'Hard Skills',
       fdr_hard_1: 'Knowledge-Graph-Architektur',
       fdr_hard_2: 'Agenten-Systeme & Tool-Use',
@@ -1391,16 +1441,16 @@
       nav_contact: 'Contact',
       nav_cta: 'Book a call',
       path_eyebrow: 'the path',
-      path_h2: 'One use case. Then two. Then the <em>whole company</em>.',
-      path_lead: 'How a concrete agent becomes a knowledge base, and the knowledge base becomes a company-wide platform — the move we run with our clients.',
-      path_s1_h: 'Incident management',
-      path_s1_p: 'An agent analyzes the alert, logs and code, searches tickets and proposes a fix — the human decides.',
-      path_s2_h: 'Onboarding automation',
-      path_s2_p: 'The knowledge graph from Stage 1 becomes the onboarding source. New hires productive in days, not months.',
-      path_s3_h: 'Agentic layer',
-      path_s3_p: 'Sales, marketing, privacy, finance — every team on the same knowledge foundation.',
+      path_h2: 'From the first agent to an <em>agentic organization</em> — together, step by step.',
+      path_lead: 'Three stages of growing maturity. We start with strategy and clarity, build the first productive agent together with your people — and hand over the wheel step by step. No vendor lock-in, no hidden knowledge.',
+      path_s1_h: 'Orientation & first agents',
+      path_s1_p: 'Use-case map, priorities, a first agent live. Your people are involved from day one — at the whiteboard, in the code, in the architecture decisions.',
+      path_s2_h: 'Knowledge foundation',
+      path_s2_p: 'One agent becomes a shared knowledge layer. Multiple areas, one source of truth — built together with your engineers and domain experts.',
+      path_s3_h: 'Agentic organization',
+      path_s3_p: 'Roles, structures and governance built for agents. We guide leadership and teams through the change — and hand the system over, step by step.',
       path_cta: 'Read the full path',
-      path_cta_meta: '+ cross-section: security &amp; compliance scanner',
+      path_cta_meta: '// cross-cut: strategy · change · technology — across all stages.',
       hero_eyebrow: "for what's next",
       hero_h1: 'Lead the shift. <em>Don’t survive it</em>.',
       hero_lead: 'We help mid-sized and grown-up companies put AI agents to real work — from the first idea, through change management, to technical delivery.',
@@ -1438,13 +1488,16 @@
       prn3_h: 'Hand over, don\u2019t hook in.',
       prn3_p: 'In the end, your team should understand, run and evolve the agents — with or without us.',
       ftr_about: 'Consulting and delivery for companies putting AI agents to real work — from use case to operations.',
-      fdr_eyebrow: 'the founder',
-      fdr_role: 'Founder · Agentic Reach',
+      fdr_eyebrow: 'the founding team',
       fdr_li: 'LinkedIn ↗',
-      fdr_h2: 'Behind Agentic Reach is <em>one person</em> — and a clear point of view.',
-      fdr_quote: '“AI won’t save your company. But the companies learning to work with agents now will still be here in five years.”',
-      fdr_p1: 'Ulrich doesn’t come from the hype. He saw AI and agents put to real work before the term went mainstream — and knows first-hand what it takes to build software, set up cloud infrastructure, and bring a team through a project as equals. Budgets, roadmaps and people included.',
-      fdr_p2: 'From that mix — mid-market reality, deep technical understanding, real experience with change — Agentic Reach was born. Not as another AI buzzword shop. As a companion for companies that want to know what actually works.',
+      fdr_h2: 'Behind Agentic Reach are <em>two founders</em> — technology and people, designed together.',
+      fdr_quote: '“AI won’t save your company. But the companies learning to work with agents now — and preparing their people for it — will still be here in five years.”',
+      fdr_u_role: 'Co-Founder · Technology & Strategy',
+      fdr_u_p1: 'Ulrich doesn’t come from the hype. He saw AI and agents put to real work before the term went mainstream — and knows first-hand what it takes to build software, set up cloud infrastructure, and bring a team through a project as equals. Budgets, roadmaps and people included.',
+      fdr_u_p2: 'From that mix — mid-market reality, deep technical understanding, real experience with change — Agentic Reach was born. Not as another AI buzzword shop. As a companion for companies that want to know what actually works.',
+      fdr_n_role: 'Co-Founder · People & Transformation',
+      fdr_n_p1: 'Nora brings the other half: people, organization, change. Over 15 years of HR experience in growing tech companies — from Cloudreach to FRAMOS to interim mandates as Chief People Officer. She knows how structures shift when tools shift — and how teams come along.',
+      fdr_n_p2: 'With ontoHR, her boutique consultancy, she has been guiding leadership teams through transformation since 2022. At Agentic Reach she makes sure agents don’t emerge next to people — but with them. Strategy, roles, enablement — so new technology becomes new work.',
       fdr_hard_h: 'Hard skills',
       fdr_hard_1: 'Knowledge-graph architecture',
       fdr_hard_2: 'Agent systems & tool use',
@@ -1506,7 +1559,6 @@
   };
 
   function applyLang(lang) {
-    if (lang !== 'de' && lang !== 'en') lang = 'de';
     document.body.dataset.lang = lang;
     document.documentElement.lang = lang;
     const dict = I18N[lang];
@@ -1523,31 +1575,18 @@
       if (kind === 'imprint') a.href = lang === 'en' ? 'Imprint.html' : 'Impressum.html';
       if (kind === 'privacy') a.href = lang === 'en' ? 'Privacy.html' : 'Datenschutz.html';
     });
-    try { localStorage.setItem('ar_lang', lang); } catch (e) {}
-    try {
-      const url = new URL(window.location.href);
-      url.searchParams.set('lang', lang);
-      window.history.replaceState({}, '', url);
-    } catch (e) {}
   }
+  // Lang toggle: delegiert an ARLang (URL-Param ist Quelle der Wahrheit)
   document.querySelectorAll('[data-lang-btn]').forEach((b) => {
-    b.addEventListener('click', () => applyLang(b.dataset.langBtn));
+    b.addEventListener('click', () => window.ARLang.set(b.dataset.langBtn));
   });
-  // Initial language: URL ?lang= > localStorage > default 'de'
-  (function initLang() {
-    let lang = null;
-    try {
-      const p = new URLSearchParams(window.location.search).get('lang');
-      if (p === 'de' || p === 'en') lang = p;
-    } catch (e) {}
-    if (!lang) {
-      try {
-        const s = localStorage.getItem('ar_lang');
-        if (s === 'de' || s === 'en') lang = s;
-      } catch (e) {}
-    }
-    applyLang(lang || 'de');
-  })();
+  window.addEventListener('ar:langchange', (e) => {
+    applyLang(e.detail.lang);
+    window.ARLang.rewriteLinks();
+  });
+  // Initiale Anwendung der gewählten Sprache
+  applyLang(window.ARLang.get());
+  window.ARLang.rewriteLinks();
 
   // ───── Booking modal ─────
   (function bookingModal() {

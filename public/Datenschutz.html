@@ -2,10 +2,19 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Datenschutz — Agentic Reach</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="stylesheet" href="fonts/fonts.css" />
+<script src="lang.js"></script>
+<script>
+  (function () {
+    if (window.ARLang && window.ARLang.get() === 'en') {
+      var hash = location.hash || '';
+      location.replace('Privacy.html?lang=en' + hash);
+    }
+  })();
+</script>
 <style>
   :root {
     --coral:  #FF7A6B;
@@ -186,7 +195,7 @@
     </a>
     <div class="right">
       <div class="lang">
-        <a href="Datenschutz.html" class="active">DE</a><span>/</span><a href="Privacy.html">EN</a>
+        <a href="Datenschutz.html?lang=de" class="active" data-no-lang>DE</a><span>/</span><a href="Privacy.html?lang=en" data-no-lang>EN</a>
       </div>
       <a href="index.html" class="back">← zur Startseite</a>
     </div>
@@ -392,15 +401,5 @@
   </div>
 </footer>
 
-<script>
-  (function () {
-    var pageLang = 'de';
-    try {
-      var p = new URLSearchParams(window.location.search).get('lang');
-      if (p === 'en') { window.location.replace('Privacy.html' + window.location.hash); return; }
-    } catch (e) {}
-    try { localStorage.setItem('ar_lang', pageLang); } catch (e) {}
-  })();
-</script>
 </body>
 </html>
