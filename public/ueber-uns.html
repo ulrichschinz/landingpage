@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Agentic Reach — for what's next</title>
+<title>Agentic Reach — Über uns</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="stylesheet" href="fonts/fonts.css" />
 <script src="lang.js"></script>
@@ -848,10 +848,31 @@
     .founders-pair { grid-template-columns: 1fr; gap: 56px; }
   }
 </style>
+<style>
+  section.about-intro { padding: 80px 0 30px; }
+  .about-intro-head { max-width: 780px; margin: 0 auto 40px; text-align: center; }
+  .about-intro-head h1 {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 500;
+    font-size: clamp(36px, 4.6vw, 58px); line-height: 1.04;
+    letter-spacing: -0.03em; margin: 14px 0 20px; text-wrap: balance;
+  }
+  .about-intro-head h1 em { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; color: var(--plum); }
+  .about-intro-head .lead { font-size: 18px; line-height: 1.55; color: var(--mute); margin: 0; }
+  .about-body { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+  .about-body p { font-size: 16px; line-height: 1.65; color: var(--ink); margin: 0; }
+  section.principles { padding: 50px 0 100px; }
+  .principles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 1000px; margin: 0 auto; }
+  .principle-card {
+    padding: 28px 26px; background: var(--paper); border: 1px solid var(--hairline);
+    border-radius: 18px; display: flex; flex-direction: column; gap: 8px;
+  }
+  .principle-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--coral); font-weight: 600; }
+  .principle-card h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 19px; letter-spacing: -0.02em; margin: 2px 0 0; }
+  .principle-card p { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--mute); }
+  @media (max-width: 960px) { .principles-grid { grid-template-columns: 1fr; } }
+</style>
 </head>
-<body data-lang="de">
-
-<!-- ───── Nav ───── -->
+<body>
 <nav class="top">
   <div class="container row">
     <a href="index.html" class="brand">
@@ -882,136 +903,85 @@
       <span>Agentic Reach</span>
     </a>
     <div class="links">
-      <a href="#services" data-i18n="nav_services">Was wir machen</a>
-      <a href="ueber-uns.html" data-i18n="nav_about">Über uns</a>
-      <a href="#contact" data-i18n="nav_contact">Kontakt</a>
+      <a href="index.html#services" data-i18n="nav_services">Was wir machen</a>
+      <a href="#" class="active" data-i18n="nav_about">Über uns</a>
+      <a href="index.html#contact" data-i18n="nav_contact">Kontakt</a>
     </div>
     <div class="right">
       <div class="lang-toggle" role="group" aria-label="Language">
         <button data-lang-btn="de" class="active">DE</button>
         <button data-lang-btn="en">EN</button>
       </div>
-      <a href="#contact" class="btn btn-primary" data-i18n="nav_cta" data-open-booking>Kontakt</a>
+      <a href="#" class="btn btn-primary" data-i18n="nav_cta" data-open-booking>Erstgespräch buchen</a>
     </div>
   </div>
 </nav>
 
-<!-- ───── Hero ───── -->
-<section class="hero">
-  <div class="container grid">
-    <div>
-      <span class="eyebrow"><span class="slash">//</span>&nbsp;<span data-i18n="hero_eyebrow">for what's next</span></span>
-      <h1 data-i18n="hero_h1">Transformation <em>Ihres Unternehmens</em> in das Zeitalter der KI.</h1>
-      <p class="lead" data-i18n="hero_lead">
-        Wir sind der einzige Partner, der Unternehmen ganzheitlich in die neue Ära begleitet. Von der technologischen Umsetzung bis zum Organisationsdesign.
-      </p>
-      <div class="cta-row">
-        <a href="https://calendar.app.google/EXjCWtgyyfhemBgK9" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-i18n="hero_cta1">
-          Erstgespräch buchen
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a href="#services" class="btn btn-ghost" data-i18n="hero_cta2">Wie wir arbeiten</a>
-      </div>
-      <div style="margin-top: 28px;">
-        <span class="cta-meta" data-i18n="hero_meta">30 Min · unverbindlich · auf Deutsch oder Englisch</span>
-      </div>
-    </div>
 
-    <div class="visual">
-      <div class="graph-frame">
-        <span class="graph-tag"><span class="dot"></span> <span data-i18n="graph_tag">live · 24 Knoten · 41 Verbindungen</span></span>
-        <svg id="graph" viewBox="0 0 560 560" preserveAspectRatio="xMidYMid meet"></svg>
-        <span class="graph-label"><span class="slash">//</span> <span data-i18n="graph_label">knowledge graph · so denken Agenten</span></span>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ───── Services ───── -->
-<section class="services" id="services">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow"><span class="slash">//</span>&nbsp;<span data-i18n="srv_eyebrow">was wir machen</span></span>
-      <div>
-        <h2 data-i18n="srv_h2">Schritt für Schritt in die Organisation der Zukunft.</h2>
-      </div>
-    </div>
-
-    <div class="services-grid">
-      <article class="service-card">
-        <div class="service-num">01</div>
-        <svg class="service-icon" viewBox="0 0 64 64" fill="none">
-          <circle cx="14" cy="32" r="4" fill="#3D2B5C"/>
-          <circle cx="32" cy="14" r="4" fill="#3D2B5C"/>
-          <circle cx="50" cy="32" r="4" fill="#3D2B5C"/>
-          <circle cx="32" cy="50" r="4.6" fill="#FF7A6B"/>
-          <line x1="14" y1="32" x2="32" y2="14" stroke="#3D2B5C" stroke-width="1.4" opacity=".5"/>
-          <line x1="32" y1="14" x2="50" y2="32" stroke="#3D2B5C" stroke-width="1.4" opacity=".5"/>
-          <line x1="50" y1="32" x2="32" y2="50" stroke="#3D2B5C" stroke-width="1.4" opacity=".5"/>
-          <line x1="32" y1="50" x2="14" y2="32" stroke="#3D2B5C" stroke-width="1.4" opacity=".5"/>
-          <circle cx="56" cy="14" r="2" fill="#F4C84A"/>
-        </svg>
-        <h3 data-i18n="srv1_h3">Discovery</h3>
-        <p data-i18n="srv1_p">Wir analysieren, wo Ihr Unternehmen wirklich steht, nicht wo es glaubt zu stehen. In einem abschließenden Workshop erhalten Sie eine klare Diagnose, eine priorisierte Empfehlung und die Entscheidungsgrundlage für den nächsten Schritt.</p>
-        <ul>
-          <li data-i18n="srv1_l1">4-6 Wochen</li>
-        </ul>
-      </article>
-
-      <article class="service-card">
-        <div class="service-num">02</div>
-        <svg class="service-icon" viewBox="0 0 64 64" fill="none">
-          <circle cx="14" cy="20" r="3.4" fill="#3D2B5C"/>
-          <circle cx="14" cy="44" r="3.4" fill="#3D2B5C"/>
-          <circle cx="50" cy="20" r="3.4" fill="#3D2B5C"/>
-          <circle cx="50" cy="44" r="4.2" fill="#FF7A6B"/>
-          <path d="M 14 20 Q 32 16 50 20" stroke="#3D2B5C" stroke-width="1.4" fill="none" opacity=".5"/>
-          <path d="M 14 44 Q 32 48 50 44" stroke="#3D2B5C" stroke-width="1.4" fill="none" opacity=".5"/>
-          <path d="M 14 20 Q 18 32 14 44" stroke="#3D2B5C" stroke-width="1.4" fill="none" opacity=".5"/>
-          <path d="M 50 20 Q 46 32 50 44" stroke="#3D2B5C" stroke-width="1.4" fill="none" opacity=".5"/>
-          <circle cx="56" cy="14" r="2" fill="#F4C84A"/>
-        </svg>
-        <h3 data-i18n="srv2_h3">Transformation Engagement</h3>
-        <p data-i18n="srv2_p">Wir setzen die Entscheidungen auf der Ebene von Kultur, Organisation und Technologie gemeinsam um. Keine Maßnahme ohne Ergebnis, sondern begleitete Umsetzung mit messbaren Meilensteinen.</p>
-        <ul>
-          <li data-i18n="srv2_l1">6 Monate</li>
-        </ul>
-      </article>
-
-      <article class="service-card">
-        <div class="service-num">03</div>
-        <svg class="service-icon" viewBox="0 0 64 64" fill="none">
-          <rect x="8" y="28" width="6" height="6" fill="#3D2B5C"/>
-          <line x1="14" y1="31" x2="26" y2="31" stroke="#3D2B5C" stroke-width="1.6"/>
-          <line x1="26" y1="31" x2="26" y2="18" stroke="#3D2B5C" stroke-width="1.6"/>
-          <line x1="26" y1="18" x2="40" y2="18" stroke="#3D2B5C" stroke-width="1.6"/>
-          <line x1="40" y1="18" x2="40" y2="44" stroke="#3D2B5C" stroke-width="1.6"/>
-          <line x1="40" y1="44" x2="50" y2="44" stroke="#3D2B5C" stroke-width="1.6"/>
-          <circle cx="26" cy="31" r="2.6" fill="#3D2B5C"/>
-          <circle cx="26" cy="18" r="2.6" fill="#3D2B5C"/>
-          <circle cx="40" cy="18" r="2.6" fill="#3D2B5C"/>
-          <circle cx="40" cy="44" r="3.6" fill="#FF7A6B"/>
-          <circle cx="56" cy="14" r="2" fill="#F4C84A"/>
-        </svg>
-        <h3 data-i18n="srv3_h3">Transformation Scale</h3>
-        <p data-i18n="srv3_p">Für Unternehmen, die nicht nur transformieren, sondern die Veränderung dauerhaft verankern wollen. Wir werden zum strategischen Partner auf Zeit, bis die neue Art zu Arbeiten zur neuen Normalität geworden ist.</p>
-        <ul>
-          <li data-i18n="srv3_l1">12 Monate</li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ───── Value props ───── -->
+<!-- ───── Founder ───── -->
 <section class="founder">
   <div class="container">
 
+    <div class="founders-intro">
+      <span class="eyebrow"><span class="slash">//</span>&nbsp;<span data-i18n="fdr_eyebrow">das gründungsteam</span></span>
+      <h2 data-i18n="fdr_h2">Hinter Agentic Reach stehen <em>zwei Gründer</em> — Technologie und Mensch, gemeinsam gedacht.</h2>
+    </div>
+
+    <div class="founders-pair">
+
+      <!-- Ulrich -->
+      <article class="founder-card">
+        <div class="portrait-frame">
+          <img src="ulrich-portrait-new.jpg" alt="Ulrich Schinz" style="width:100%; height:100%; object-fit: cover; display:block;" />
+        </div>
+        <div class="founder-id">
+          <div class="founder-name">Ulrich Schinz</div>
+          <div class="founder-role" data-i18n="fdr_u_role">Co-Founder · Technologie &amp; Strategie</div>
+        </div>
+        <div class="founder-paras">
+          <p data-i18n="fdr_u_p1">
+            Ulrich kommt nicht aus dem Hype. Er hat KI und Agenten produktiv im Einsatz erlebt, bevor das Wort en vogue wurde und kennt aus eigener Hand, was es heißt, Software zu bauen, Cloud-Infrastruktur aufzusetzen und ein Team auf Augenhöhe durch ein Projekt zu bringen. Verantwortung für Budgets, Roadmaps und Menschen inklusive.
+          </p>
+          <p data-i18n="fdr_u_p2">
+            Aus dieser Mischung, Mittelstands-Realität, technisches Tiefenverständnis, Erfahrung mit Veränderungsprozessen, ist Agentic Reach entstanden.
+          </p>
+        </div>
+        <div class="founder-contact">
+          <a href="mailto:ulrich.schinz@agentic-reach.com">ulrich.schinz@agentic-reach.com</a>
+          <a href="https://www.linkedin.com/in/ulrich-schinz-424455115/" target="_blank" rel="noopener noreferrer" data-i18n="fdr_li">LinkedIn ↗</a>
+        </div>
+      </article>
+
+      <!-- Nora -->
+      <article class="founder-card">
+        <div class="portrait-frame">
+          <img src="nora-portrait-coral.png" alt="Nora Kraus" style="width:100%; height:100%; object-fit: cover; display:block;" />
+        </div>
+        <div class="founder-id">
+          <div class="founder-name">Nora Kraus</div>
+          <div class="founder-role" data-i18n="fdr_n_role">Co-Founder · Menschen &amp; Transformation</div>
+        </div>
+        <div class="founder-paras">
+          <p data-i18n="fdr_n_p1">
+            Nora bringt die andere Hälfte mit: Menschen, Organisation, Veränderung. Seit 20 Jahren begleitet sie wachsende KMU in Organizational Design and Change - bis hin zu Interim-Mandaten als Chief People Officer. Sie weiß, wie sich Strukturen verschieben, wenn Werkzeuge wechseln - und wie Teams dabei mitkommen.
+          </p>
+          <p data-i18n="fdr_n_p2">
+            Bei Agentic Reach sorgt sie dafür, dass Agenten nicht neben den Menschen entstehen - sondern mit ihnen. Strategie, Rollen, Befähigung - damit aus neuer Technologie auch neue Arbeit wird.
+          </p>
+        </div>
+        <div class="founder-contact">
+          <a href="mailto:nora.kraus@agentic-reach.com">nora.kraus@agentic-reach.com</a>
+          <a href="https://www.linkedin.com/in/hrnorakraus" target="_blank" rel="noopener noreferrer" data-i18n="fdr_li">LinkedIn ↗</a>
+        </div>
+      </article>
+
+    </div>
   </div>
 </section>
 
 <!-- ───── Footer ───── -->
-<footer id="contact">
+<footer>
   <div class="container">
     <div class="footer-claim">
       <span class="accent">//</span>for what's next
@@ -1046,23 +1016,23 @@
           </svg>
           <span>Agentic Reach</span>
         </div>
-        <p data-i18n="ftr_about">Beratung und Umsetzung von der technologischen Transformation bis zum Orgnaisationsdesign im KI-Zeitalter.</p>
+        <p data-i18n="ftr_about">Beratung und Umsetzung für Unternehmen, die KI-Agenten produktiv einsetzen wollen — vom Use-Case bis zum Betrieb.</p>
       </div>
 
       <div>
         <h4 data-i18n="ftr_contact_h">Kontakt</h4>
         <ul>
           <li><a href="mailto:hello@agentic-reach.com">hello@agentic-reach.com</a></li>
-          <li><a href="https://calendar.app.google/EXjCWtgyyfhemBgK9" target="_blank" rel="noopener noreferrer" data-i18n="ftr_call">Erstgespräch buchen</a></li>
-          <li><a href="https://www.linkedin.com/company/113262114" target="_blank" rel="noopener noreferrer" data-i18n="ftr_linkedin">LinkedIn</a></li>
+          <li><a href="#" data-i18n="ftr_call" data-open-booking>Erstgespräch buchen</a></li>
+          <li><a href="https://www.linkedin.com/in/ulrich-schinz-424455115/" target="_blank" rel="noopener noreferrer" data-i18n="ftr_linkedin">LinkedIn</a></li>
         </ul>
       </div>
 
       <div>
         <h4 data-i18n="ftr_company_h">Unternehmen</h4>
         <ul>
-          <li><a href="#services" data-i18n="ftr_services">Was wir machen</a></li>
-          <li><a href="ueber-uns.html" data-i18n="ftr_about_link">Über uns</a></li>
+          <li><a href="index.html#services" data-i18n="ftr_services">Was wir machen</a></li>
+          <li><a href="#" data-i18n="ftr_about_link">Über uns</a></li>
         </ul>
       </div>
 
@@ -1086,14 +1056,19 @@
 <div class="modal-backdrop" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="bookingTitle" hidden>
   <div class="modal" role="document">
     <div class="modal-head">
-      <span class="modal-eyebrow"><span class="slash">//</span>&nbsp;<span data-i18n="bk_eyebrow">KONTAKTAUFNAHME</span></span>
+      <span class="modal-eyebrow"><span class="slash">//</span>&nbsp;<span data-i18n="bk_eyebrow">erstgespräch</span></span>
       <button type="button" class="modal-close" aria-label="Schließen" data-close-booking>
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 3l8 8M11 3l-8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
       </button>
     </div>
     <div class="modal-body">
-      <h3 id="bookingTitle" data-i18n="bk_h"><em>Kontakt</em></h3>
-      <p class="modal-lead" data-i18n="bk_lead"><br /></p>
+      <h3 id="bookingTitle" data-i18n="bk_h">Schreiben Sie mir <em>kurz</em> — ich melde mich.</h3>
+      <p class="modal-lead" data-i18n="bk_lead">Drei, vier Sätze reichen. Ich antworte innerhalb eines Werktags und schlage zwei Termine vor.</p>
+      <div class="modal-meta">
+        <span><span class="dot"></span><span data-i18n="bk_m1">30 Min</span></span>
+        <span><span class="dot"></span><span data-i18n="bk_m2">unverbindlich</span></span>
+        <span><span class="dot"></span><span data-i18n="bk_m3">DE oder EN</span></span>
+      </div>
       <form id="bookingForm" novalidate>
         <div class="form-grid">
           <div class="form-field">
@@ -1109,7 +1084,7 @@
             <input type="text" id="bk_company" name="company" autocomplete="organization" />
           </div>
           <div class="form-field full">
-            <label for="bk_topic" data-i18n="bk_topic">NACHRICHT</label>
+            <label for="bk_topic" data-i18n="bk_topic">Worum geht's?</label>
             <textarea id="bk_topic" name="topic" rows="4" placeholder=""></textarea>
           </div>
         </div>
@@ -1142,26 +1117,7 @@
       nav_services: 'Was wir machen',
       nav_about: 'Über uns',
       nav_contact: 'Kontakt',
-      nav_cta: 'Kontakt',
-      hero_eyebrow: "for what's next",
-      hero_h1: 'Transformation <em>Ihres Unternehmens</em> in das Zeitalter der KI.',
-      hero_lead: 'Wir sind der einzige Partner, der Unternehmen ganzheitlich in die neue Ära begleitet. Von der technologischen Umsetzung bis zum Organisationsdesign.',
-      hero_cta1: 'Erstgespräch buchen',
-      hero_cta2: 'Wie wir arbeiten',
-      hero_meta: '30 Min · unverbindlich · auf Deutsch oder Englisch',
-      graph_tag: 'live · 24 Knoten · 41 Verbindungen',
-      graph_label: 'knowledge graph · so denken Agenten',
-      srv_eyebrow: 'was wir machen',
-      srv_h2: 'Schritt für Schritt in die Organisation der Zukunft.',
-      srv1_h3: 'Discovery',
-      srv1_p: 'Wir analysieren, wo Ihr Unternehmen wirklich steht, nicht wo es glaubt zu stehen. In einem abschließenden Workshop erhalten Sie eine klare Diagnose, eine priorisierte Empfehlung und die Entscheidungsgrundlage für den nächsten Schritt.',
-      srv1_l1: '4-6 Wochen',
-      srv2_h3: 'Transformation Engagement',
-      srv2_p: 'Wir setzen die Entscheidungen auf der Ebene von Kultur, Organisation und Technologie gemeinsam um. Keine Maßnahme ohne Ergebnis, sondern begleitete Umsetzung mit messbaren Meilensteinen.',
-      srv2_l1: '6 Monate',
-      srv3_h3: 'Transformation Scale',
-      srv3_p: 'Für Unternehmen, die nicht nur transformieren, sondern die Veränderung dauerhaft verankern wollen. Wir werden zum strategischen Partner auf Zeit, bis die neue Art zu Arbeiten zur neuen Normalität geworden ist.',
-      srv3_l1: '12 Monate',
+      nav_cta: 'Erstgespräch buchen',
       about_eyebrow: 'über uns',
       about_h2: 'Wir bauen Agenten, weil wir <em>Unternehmen verstehen</em>.',
       about_lead: 'Agentic Reach ist die Brücke zwischen dem, was technisch heute schon geht, und dem, was bei Ihnen morgen ankommen muss.',
@@ -1179,11 +1135,11 @@
       fdr_h2: 'Hinter Agentic Reach stehen <em>zwei Gründer</em> — Technologie und Mensch, gemeinsam gedacht.',
       fdr_quote: '„KI wird nicht das Unternehmen retten. Aber Unternehmen, die jetzt lernen, mit Agenten zu arbeiten — und ihre Menschen darauf vorzubereiten — werden in fünf Jahren noch da sein.“',
       fdr_u_role: 'Co-Founder · Technologie & Strategie',
-      fdr_u_p1: 'Ulrich kommt nicht aus dem Hype. Er hat KI und Agenten produktiv im Einsatz erlebt, bevor das Wort en vogue wurde — und kennt aus eigener Hand, was es heißt, Software zu bauen, Cloud-Infrastruktur aufzusetzen und ein Team auf Augenhöhe durch ein Projekt zu bringen. Verantwortung für Budgets, Roadmaps und Menschen inklusive.',
-      fdr_u_p2: 'Aus dieser Mischung — Mittelstands-Realität, technisches Tiefenverständnis, Erfahrung mit Veränderungsprozessen — ist Agentic Reach entstanden. Nicht als KI-Buzzword-Beratung. Sondern als Begleiter für Unternehmen, die wissen wollen, was wirklich geht.',
+      fdr_u_p1: 'Ulrich kommt nicht aus dem Hype. Er hat KI und Agenten produktiv im Einsatz erlebt, bevor das Wort en vogue wurde und kennt aus eigener Hand, was es heißt, Software zu bauen, Cloud-Infrastruktur aufzusetzen und ein Team auf Augenhöhe durch ein Projekt zu bringen. Verantwortung für Budgets, Roadmaps und Menschen inklusive.',
+      fdr_u_p2: 'Aus dieser Mischung, Mittelstands-Realität, technisches Tiefenverständnis, Erfahrung mit Veränderungsprozessen, ist Agentic Reach entstanden.',
       fdr_n_role: 'Co-Founder · Menschen & Transformation',
-      fdr_n_p1: 'Nora bringt die andere Hälfte mit: Menschen, Organisation, Veränderung. Seit 2020 begleitet sie wachsende KMU in Organizational Design and Change — bis hin zu Interim-Mandaten als Chief People Officer. Sie weiß, wie sich Strukturen verschieben, wenn Werkzeuge wechseln — und wie Teams dabei mitkommen.',
-      fdr_n_p2: 'Mit ontoHR, ihrer Boutique-Beratung, begleitet sie seit 2020 Führungsteams durch Transformation. Bei Agentic Reach sorgt sie dafür, dass Agenten nicht neben den Menschen entstehen — sondern mit ihnen. Strategie, Rollen, Befähigung — damit aus neuer Technologie auch neue Arbeit wird.',
+      fdr_n_p1: 'Nora bringt die andere Hälfte mit: Menschen, Organisation, Veränderung. Seit 20 Jahren begleitet sie wachsende KMU in Organizational Design and Change - bis hin zu Interim-Mandaten als Chief People Officer. Sie weiß, wie sich Strukturen verschieben, wenn Werkzeuge wechseln - und wie Teams dabei mitkommen.',
+      fdr_n_p2: 'Bei Agentic Reach sorgt sie dafür, dass Agenten nicht neben den Menschen entstehen - sondern mit ihnen. Strategie, Rollen, Befähigung - damit aus neuer Technologie auch neue Arbeit wird.',
       fdr_hard_h: 'Hard Skills',
       fdr_hard_1: 'Knowledge-Graph-Architektur',
       fdr_hard_2: 'Agenten-Systeme & Tool-Use',
@@ -1196,18 +1152,6 @@
       fdr_soft_3: 'Sagt auch, was nicht geht',
       fdr_soft_4: 'Hat Geduld mit Veränderung',
       fdr_soft_5: 'Bleibt verbindlich, auch nach dem Projekt',
-      team_eyebrow: 'team & netzwerk',
-      team_h3: 'Klein im Kern. Groß im <em>Netzwerk</em>.',
-      team_p: 'Ulrich arbeitet mit einem schlanken Kernteam und einem ausgewählten Pool von Spezialist:innen — eingebunden, wenn sie gebraucht werden, nicht weil sie auf der Bank sitzen.',
-      team_1_role: 'Kern · Founder',
-      team_2_role: 'Kern · Engineering Lead',
-      team_2_desc: 'Agenten-Bau · Knowledge-Graphen',
-      team_3_role: 'Kern · Change-Lead',
-      team_3_desc: 'Workshops · Befähigung · Kommunikation',
-      team_1_desc: 'Strategie · Architektur · Kunde',
-      team_4_role: 'Netzwerk',
-      team_4_name: '12+ Spezialist:innen',
-      team_4_desc: 'UX · Daten · Recht · Branchen-Expertise — auf Abruf',
       ftr_contact_h: 'Kontakt',
       ftr_call: 'Erstgespräch buchen',
       ftr_linkedin: 'LinkedIn',
@@ -1217,17 +1161,17 @@
       ftr_legal_h: 'Rechtliches',
       ftr_imprint: 'Impressum',
       ftr_privacy: 'Datenschutz',
-      ftr_meta: 'for what\u2019s next',
-      bk_eyebrow: 'KONTAKTAUFNAHME',
-      bk_h: '<em>Kontakt</em>',
-      bk_lead: '<br/>',
+      ftr_meta: 'made for what\u2019s next',
+      bk_eyebrow: 'erstgespräch',
+      bk_h: 'Schreiben Sie mir <em>kurz</em> — ich melde mich.',
+      bk_lead: 'Drei, vier Sätze reichen. Ich antworte innerhalb eines Werktags und schlage zwei Termine vor.',
       bk_m1: '30 Min',
       bk_m2: 'unverbindlich',
       bk_m3: 'DE oder EN',
       bk_name: 'Name',
       bk_email: 'E-Mail',
       bk_company: 'Firma',
-      bk_topic: 'NACHRICHT',
+      bk_topic: 'Worum geht\u2019s?',
       bk_submit: 'Senden',
       bk_alt: 'oder direkt: <a href="mailto:hello@agentic-reach.com">hello@agentic-reach.com</a>',
       bk_success_h: 'Danke! Ihre Anfrage ist angekommen.',
@@ -1239,25 +1183,6 @@
       nav_about: 'About',
       nav_contact: 'Contact',
       nav_cta: 'Book a call',
-      hero_eyebrow: "for what's next",
-      hero_h1: 'Transforming <em>your company</em> for the age of AI.',
-      hero_lead: 'We are the only partner that guides companies holistically into the new era — from technological delivery to organisational design.',
-      hero_cta1: 'Book a call',
-      hero_cta2: 'How we work',
-      hero_meta: '30 min · no commitment · German or English',
-      graph_tag: 'live · 24 nodes · 41 edges',
-      graph_label: 'knowledge graph · how agents think',
-      srv_eyebrow: 'what we do',
-      srv_h2: 'Step by step into the organisation of the future.',
-      srv1_h3: 'Discovery',
-      srv1_p: 'We analyse where your company truly stands, not where it believes it stands. In a closing workshop you get a clear diagnosis, a prioritised recommendation, and the basis for deciding the next step.',
-      srv1_l1: '4-6 weeks',
-      srv2_h3: 'Transformation Engagement',
-      srv2_p: 'We implement the decisions together across culture, organisation and technology. No measure without a result — guided delivery with measurable milestones.',
-      srv2_l1: '6 months',
-      srv3_h3: 'Transformation Scale',
-      srv3_p: 'For companies that want to not just transform, but make the change stick for good. We become your strategic partner for a defined period, until the new way of working is the new normal.',
-      srv3_l1: '12 months',
       about_eyebrow: 'about us',
       about_h2: 'We build agents because we <em>understand companies</em>.',
       about_lead: 'Agentic Reach is the bridge between what\u2019s technically possible today and what has to land in your organisation tomorrow.',
@@ -1275,11 +1200,11 @@
       fdr_h2: 'Behind Agentic Reach are <em>two founders</em> — technology and people, designed together.',
       fdr_quote: '“AI won’t save your company. But the companies learning to work with agents now — and preparing their people for it — will still be here in five years.”',
       fdr_u_role: 'Co-Founder · Technology & Strategy',
-      fdr_u_p1: 'Ulrich doesn’t come from the hype. He saw AI and agents put to real work before the term went mainstream — and knows first-hand what it takes to build software, set up cloud infrastructure, and bring a team through a project as equals. Budgets, roadmaps and people included.',
-      fdr_u_p2: 'From that mix — mid-market reality, deep technical understanding, real experience with change — Agentic Reach was born. Not as another AI buzzword shop. As a companion for companies that want to know what actually works.',
+      fdr_u_p1: 'Ulrich doesn’t come from the hype. He saw AI and agents put to real work before the term went mainstream and knows first-hand what it takes to build software, set up cloud infrastructure, and bring a team through a project as equals. Budgets, roadmaps and people included.',
+      fdr_u_p2: 'From that mix, mid-market reality, deep technical understanding, real experience with change, Agentic Reach was born.',
       fdr_n_role: 'Co-Founder · People & Transformation',
-      fdr_n_p1: 'Nora brings the other half: people, organization, change. Since 2020 she has been guiding growing SMEs through organizational design and change — up to interim mandates as Chief People Officer. She knows how structures shift when tools shift — and how teams come along.',
-      fdr_n_p2: 'With ontoHR, her boutique consultancy, she has been guiding leadership teams through transformation since 2020. At Agentic Reach she makes sure agents don’t emerge next to people — but with them. Strategy, roles, enablement — so new technology becomes new work.',
+      fdr_n_p1: 'Nora brings the other half: people, organization, change. For 20 years she has been guiding growing SMEs through organizational design and change - up to interim mandates as Chief People Officer. She knows how structures shift when tools shift - and how teams come along.',
+      fdr_n_p2: 'At Agentic Reach she makes sure agents don’t emerge next to people - but with them. Strategy, roles, enablement - so new technology becomes new work.',
       fdr_hard_h: 'Hard skills',
       fdr_hard_1: 'Knowledge-graph architecture',
       fdr_hard_2: 'Agent systems & tool use',
@@ -1292,18 +1217,6 @@
       fdr_soft_3: 'Says clearly when something won’t work',
       fdr_soft_4: 'Has patience with change',
       fdr_soft_5: 'Stays committed, also after the project',
-      team_eyebrow: 'team & network',
-      team_h3: 'Small at the core. Large in <em>network</em>.',
-      team_p: 'Ulrich works with a lean core team and a selected pool of specialists — brought in when they’re needed, not because they’re sitting on the bench.',
-      team_1_role: 'Core · Founder',
-      team_1_desc: 'Strategy · architecture · client',
-      team_2_role: 'Core · Engineering Lead',
-      team_2_desc: 'Agent build · knowledge graphs',
-      team_3_role: 'Core · Change Lead',
-      team_3_desc: 'Workshops · enablement · communication',
-      team_4_role: 'Network',
-      team_4_name: '12+ specialists',
-      team_4_desc: 'UX · data · legal · industry expertise — on call',
       ftr_contact_h: 'Contact',
       ftr_call: 'Book a call',
       ftr_linkedin: 'LinkedIn',
@@ -1313,16 +1226,17 @@
       ftr_legal_h: 'Legal',
       ftr_imprint: 'Imprint',
       ftr_privacy: 'Privacy',
-      ftr_meta: 'for what\u2019s next',
-      bk_eyebrow: 'CONTACT',
-      bk_h: '<em>Contact</em>',
-      bk_lead: '<br/>',
+      ftr_meta: 'made for what\u2019s next',
+      bk_eyebrow: 'intro call',
+      bk_h: 'Drop me a <em>short</em> note — I’ll get back.',
+      bk_lead: 'A few sentences is enough. I reply within one business day and propose two slots.',
+      bk_m1: '30 min',
       bk_m2: 'no commitment',
       bk_m3: 'DE or EN',
       bk_name: 'Name',
       bk_email: 'Email',
       bk_company: 'Company',
-      bk_topic: 'MESSAGE',
+      bk_topic: 'What\u2019s on your mind?',
       bk_submit: 'Send',
       bk_alt: 'or directly: <a href="mailto:hello@agentic-reach.com">hello@agentic-reach.com</a>',
       bk_success_h: 'Thank you! Your request has been received.',
@@ -1330,6 +1244,7 @@
       bk_error: 'Something went wrong. Please write directly to hello@agentic-reach.com.',
     },
   };
+
 
   function applyLang(lang) {
     document.body.dataset.lang = lang;
@@ -1438,109 +1353,6 @@
     });
   })();
 
-  // ───── Knowledge graph (animated) ─────
-  (function buildGraph() {
-    const svg = document.getElementById('graph');
-    const W = 560, H = 560;
-    const ns = 'http://www.w3.org/2000/svg';
-
-    // Generate ~24 nodes in a soft polar distribution
-    const N = 24;
-    const nodes = [];
-    const rng = (seed => () => (seed = (seed * 9301 + 49297) % 233280) / 233280)(7);
-    for (let i = 0; i < N; i++) {
-      const ang = (i / N) * Math.PI * 2 + rng() * 0.4;
-      const ring = (i % 4); // 0 inner, 3 outer
-      const r = 70 + ring * 70 + rng() * 30;
-      const x = W/2 + Math.cos(ang) * r;
-      const y = H/2 + Math.sin(ang) * r;
-      nodes.push({ x, y, ring });
-    }
-    // central anchor node
-    nodes[0] = { x: W/2, y: H/2, ring: -1, anchor: true };
-
-    // Edges: connect each node to 1-2 closer neighbors
-    const edges = [];
-    for (let i = 1; i < N; i++) {
-      const a = nodes[i];
-      const candidates = nodes
-        .map((b, j) => ({ j, d: (a.x - b.x) ** 2 + (a.y - b.y) ** 2 }))
-        .filter(c => c.j !== i)
-        .sort((x, y) => x.d - y.d)
-        .slice(0, 3);
-      // always connect to nearest
-      edges.push({ a: i, b: candidates[0].j });
-      // sometimes to second-nearest
-      if (rng() > 0.55) edges.push({ a: i, b: candidates[1].j });
-    }
-
-    // Render edges first
-    edges.forEach((e, idx) => {
-      const a = nodes[e.a], b = nodes[e.b];
-      const line = document.createElementNS(ns, 'line');
-      line.setAttribute('x1', a.x); line.setAttribute('y1', a.y);
-      line.setAttribute('x2', b.x); line.setAttribute('y2', b.y);
-      line.setAttribute('stroke', '#3D2B5C');
-      line.setAttribute('stroke-width', '1');
-      line.setAttribute('opacity', '0');
-      line.style.transition = 'opacity .8s ease-out';
-      svg.appendChild(line);
-      setTimeout(() => { line.setAttribute('opacity', '0.55'); }, (600 + idx * 40));
-    });
-
-    // Reach lines: from center to a few outer nodes — coral, animated
-    const reachIdx = [3, 9, 15, 21];
-    reachIdx.forEach((i, k) => {
-      const a = nodes[0], b = nodes[i];
-      const line = document.createElementNS(ns, 'line');
-      line.setAttribute('x1', a.x); line.setAttribute('y1', a.y);
-      line.setAttribute('x2', b.x); line.setAttribute('y2', b.y);
-      line.setAttribute('stroke', '#FF7A6B');
-      line.setAttribute('stroke-width', '1.6');
-      line.setAttribute('stroke-linecap', 'round');
-      line.setAttribute('stroke-dasharray', '4 6');
-      line.setAttribute('opacity', '0');
-      line.style.transition = 'opacity .8s ease-out';
-      line.style.animation = `dashSlide 6s linear ${k * 1.5}s infinite`;
-      svg.appendChild(line);
-      setTimeout(() => { line.setAttribute('opacity', '0.85'); }, (1500 + k * 200));
-    });
-
-    // Render nodes — animate r via SVG attribute + CSS transition on `r`
-    nodes.forEach((n, i) => {
-      const c = document.createElementNS(ns, 'circle');
-      c.setAttribute('cx', n.x); c.setAttribute('cy', n.y);
-      const isAnchor = n.anchor;
-      const r = isAnchor ? 7 : (n.ring === 3 ? 4 : n.ring === 2 ? 3.4 : 3.8);
-      c.setAttribute('r', 0);
-      c.setAttribute('fill', isAnchor ? '#3D2B5C' : (i % 7 === 0 ? '#FF7A6B' : '#3D2B5C'));
-      c.style.transition = 'r .5s cubic-bezier(.2,1.6,.4,1)';
-      svg.appendChild(c);
-      setTimeout(() => { c.setAttribute('r', r); }, (100 + i * 40));
-    });
-
-    // One yellow accent
-    const acc = document.createElementNS(ns, 'circle');
-    acc.setAttribute('cx', nodes[12].x + 10);
-    acc.setAttribute('cy', nodes[12].y - 8);
-    acc.setAttribute('r', 0);
-    acc.setAttribute('fill', '#F4C84A');
-    acc.style.transition = 'r .5s cubic-bezier(.2,1.6,.4,1)';
-    acc.style.animation = `sparkle 3s ease-in-out 1.6s infinite`;
-    svg.appendChild(acc);
-    setTimeout(() => { acc.setAttribute('r', 3); }, 1600);
-
-    // Inject keyframes once
-    if (!document.getElementById('graph-keyframes')) {
-      const style = document.createElement('style');
-      style.id = 'graph-keyframes';
-      style.textContent = `
-        @keyframes dashSlide { to { stroke-dashoffset: -200; } }
-        @keyframes sparkle { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .55; transform: scale(1.4); } }
-      `;
-      document.head.appendChild(style);
-    }
-  })();
 </script>
 
 </body>
