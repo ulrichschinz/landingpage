@@ -15,17 +15,7 @@
     }
   })();
 </script>
-<!-- Venta / Radar analytics -->
-<script>
-  !function(e){"use strict";var a=e&&e.namespace;if(a&&e.profileId&&e.cdn){var r=window[a];if(r&&Array.isArray(r)||(r=window[a]=[]),!r.initialized&&!r._loaded)if(r._loaded)console&&console.warn("[Radar] Duplicate initialization attempted");else{r._loaded=!0;["track","page","identify","group","alias","ready","debug","on","off","once","trackClick","trackSubmit","trackLink","trackForm","pageview","screen","reset","register","setAnonymousId","addSourceMiddleware","addIntegrationMiddleware","addDestinationMiddleware"].forEach((function(e){var i;r[e]=(i=e,function(){var e=window[a];if(e.initialized)return e[i].apply(e,arguments);var r=[].slice.call(arguments);return r.unshift(i),e.push(r),e})})),r.bootstrap=function(){var a=document.createElement("script");a.async=!0,a.type="text/javascript",a.id="__radar__",a.dataset.settings=JSON.stringify(e),a.src="https://"+e.cdn+"/releases/latest/radar.min.js";var r=document.scripts[0];r.parentNode.insertBefore(a,r)},r.bootstrap()}}else"undefined"!=typeof console&&console.error("[Radar] Configuration incomplete")}({
-    "cdn": "cdn.getventa.ai",
-    "apiEndpoint": "api.getventa.ai",
-    "profileId": "ronbWwvHhGk",
-    "namespace": "Venta",
-    "waitForConsent": false,
-    "features": { "downloadTracking": true, "formTracking": true }
-  });
-</script>
+<script src="consent.js?v=1"></script>
 <style>
   :root {
     --coral:  #FF7A6B;
@@ -277,8 +267,9 @@
     </p>
     <p>
       This website does without ad networks, social-media plugins and embedded third-party
-      content. For reach measurement and usage analysis we use the service <strong>Venta AI</strong>,
-      which stores a cookie on your device. Details and how to object are set out in section 08.
+      content. For reach measurement and usage analysis we use the service <strong>Venta AI</strong>
+      — but <strong>only if you have consented beforehand</strong>. Without your consent the service
+      is not loaded. Details and how to withdraw are set out in section 08.
     </p>
 
     <h2 id="serverlogs"><span class="num">03</span>Server log files</h2>
@@ -338,9 +329,11 @@
       data forwarded by email is handled as described in section 04.<br>
       <strong>Spam protection:</strong> We use a technical honeypot (a hidden form field) to detect
       automated spam submissions. No third-party CAPTCHA service is used.<br>
-      <strong>Form analytics:</strong> The service <strong>Venta AI</strong> described in section 08
-      additionally records your interaction with this form — including the field contents you enter
-      (name, email address, company, message) — and transmits them to Venta AI. Password and payment
+      <strong>Form analytics:</strong> If you have consented to the use of <strong>Venta AI</strong>
+      (section 08), that service additionally records your interaction with this form — including the
+      field contents you enter (name, email address, company, message) — and transmits them to
+      Venta AI. <strong>Without your consent this does not happen at all</strong>; the form works
+      regardless. Password and payment
       fields are technically excluded; this form does not contain such fields in any case.
     </p>
 
@@ -410,9 +403,26 @@
     <p>
       Storing information on, and reading information from, your device is based on your consent
       pursuant to <strong>Section 25(1) TDDDG</strong>. The subsequent processing of the personal
-      data collected in this way is based on <strong>Art. 6(1)(a) GDPR</strong> (consent). You may
-      withdraw your consent at any time with effect for the future; the lawfulness of processing
-      carried out before withdrawal remains unaffected.
+      data collected in this way is based on <strong>Art. 6(1)(a) GDPR</strong> (consent).
+    </p>
+    <p>
+      On your first visit to this website we ask for your consent via a notice at the bottom of the
+      screen. <strong>Until you have agreed, the Venta AI script is not loaded</strong> — no data is
+      transmitted to the provider and no cookies or other entries are stored on your device. If you
+      decline, the service remains disabled permanently; the website is fully usable without it.
+    </p>
+    <p>
+      You may <strong>withdraw your consent at any time with effect for the future</strong> — via the
+      <a href="#" data-consent-open data-no-lang><strong>Cookie settings</strong></a>
+      link at the bottom of every page. On withdrawal, the cookies and storage entries set by
+      Venta AI are deleted. The lawfulness of processing carried out before withdrawal remains
+      unaffected.
+    </p>
+    <p>
+      Your decision itself is stored in your browser's local storage under the entry
+      <code>ar_consent</code>. This entry is necessary to give effect to your choice and therefore
+      does not itself require consent (Section 25(2)(2) TDDDG). It contains only your decision and
+      its timestamp, and is not transmitted.
     </p>
 
     <h3>Recipients, retention and transfers to third countries</h3>
@@ -428,10 +438,11 @@
 
     <h3>Objection and deletion</h3>
     <p>
-      You can prevent this collection by blocking or deleting cookies and website data for this
-      domain in your browser, by enabling your browser's "Do Not Track" or tracking protection, or
-      by using a script blocker. Entries already set can be removed via your browser settings
-      ("delete cookies and site data").
+      The simplest route is to withdraw consent via
+      <a href="#" data-consent-open data-no-lang><strong>Cookie settings</strong></a>
+      at the bottom of the page — this stops the tracking and deletes the entries that were set.
+      Independently of that, you can block or delete cookies and website data for this domain in
+      your browser, enable your browser's tracking protection, or use a script blocker.
     </p>
     <div class="note">
       We use neither advertising networks nor social-media pixels. Session recording and screen
@@ -484,6 +495,7 @@
       <a href="index.html">Home</a>
       <a href="Imprint.html">Imprint</a>
       <a href="mailto:hello@agentic-reach.com">Contact</a>
+      <a href="#" data-consent-open data-no-lang>Cookie settings</a>
     </div>
   </div>
 </footer>

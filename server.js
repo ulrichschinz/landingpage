@@ -61,6 +61,16 @@ app.get('/api/health', (_, res) => res.json({ ok: true }));
 app.use(express.static(path.join(__dirname, 'public'), {
   extensions: ['html'],
   maxAge: '1h',
+  setHeaders(res, filePath) {
+    // HTML nicht cachen: die Seiten binden den Einwilligungs-Gate (consent.js)
+    // ein und entscheiden, ob Tracking überhaupt geladen wird. Mit einer
+    // Stunde Cache würden wiederkehrende Besucher nach einem Deploy weiterhin
+    // die alte Fassung ausführen. ETag/Last-Modified bleiben aktiv, ein
+    // unveränderter Abruf kostet daher nur ein 304.
+    if (filePath.endsWith('.html')) {
+      res.setHeader('Cache-Control', 'no-cache');
+    }
+  },
 }));
 
 const port = Number(process.env.PORT || 3000);

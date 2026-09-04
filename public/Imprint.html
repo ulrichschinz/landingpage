@@ -16,17 +16,7 @@
     }
   })();
 </script>
-<!-- Venta / Radar analytics -->
-<script>
-  !function(e){"use strict";var a=e&&e.namespace;if(a&&e.profileId&&e.cdn){var r=window[a];if(r&&Array.isArray(r)||(r=window[a]=[]),!r.initialized&&!r._loaded)if(r._loaded)console&&console.warn("[Radar] Duplicate initialization attempted");else{r._loaded=!0;["track","page","identify","group","alias","ready","debug","on","off","once","trackClick","trackSubmit","trackLink","trackForm","pageview","screen","reset","register","setAnonymousId","addSourceMiddleware","addIntegrationMiddleware","addDestinationMiddleware"].forEach((function(e){var i;r[e]=(i=e,function(){var e=window[a];if(e.initialized)return e[i].apply(e,arguments);var r=[].slice.call(arguments);return r.unshift(i),e.push(r),e})})),r.bootstrap=function(){var a=document.createElement("script");a.async=!0,a.type="text/javascript",a.id="__radar__",a.dataset.settings=JSON.stringify(e),a.src="https://"+e.cdn+"/releases/latest/radar.min.js";var r=document.scripts[0];r.parentNode.insertBefore(a,r)},r.bootstrap()}}else"undefined"!=typeof console&&console.error("[Radar] Configuration incomplete")}({
-    "cdn": "cdn.getventa.ai",
-    "apiEndpoint": "api.getventa.ai",
-    "profileId": "ronbWwvHhGk",
-    "namespace": "Venta",
-    "waitForConsent": false,
-    "features": { "downloadTracking": true, "formTracking": true }
-  });
-</script>
+<script src="consent.js?v=1"></script>
 <style>
   :root {
     --coral:  #FF7A6B;
@@ -289,6 +279,7 @@
       <a href="index.html">Home</a>
       <a href="Privacy.html">Privacy</a>
       <a href="mailto:hello@agentic-reach.com">Contact</a>
+      <a href="#" data-consent-open data-no-lang>Cookie settings</a>
     </div>
   </div>
 </footer>

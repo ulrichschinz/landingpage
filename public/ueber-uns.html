@@ -7,17 +7,7 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="stylesheet" href="fonts/fonts.css" />
 <script src="lang.js"></script>
-<!-- Venta / Radar analytics -->
-<script>
-  !function(e){"use strict";var a=e&&e.namespace;if(a&&e.profileId&&e.cdn){var r=window[a];if(r&&Array.isArray(r)||(r=window[a]=[]),!r.initialized&&!r._loaded)if(r._loaded)console&&console.warn("[Radar] Duplicate initialization attempted");else{r._loaded=!0;["track","page","identify","group","alias","ready","debug","on","off","once","trackClick","trackSubmit","trackLink","trackForm","pageview","screen","reset","register","setAnonymousId","addSourceMiddleware","addIntegrationMiddleware","addDestinationMiddleware"].forEach((function(e){var i;r[e]=(i=e,function(){var e=window[a];if(e.initialized)return e[i].apply(e,arguments);var r=[].slice.call(arguments);return r.unshift(i),e.push(r),e})})),r.bootstrap=function(){var a=document.createElement("script");a.async=!0,a.type="text/javascript",a.id="__radar__",a.dataset.settings=JSON.stringify(e),a.src="https://"+e.cdn+"/releases/latest/radar.min.js";var r=document.scripts[0];r.parentNode.insertBefore(a,r)},r.bootstrap()}}else"undefined"!=typeof console&&console.error("[Radar] Configuration incomplete")}({
-    "cdn": "cdn.getventa.ai",
-    "apiEndpoint": "api.getventa.ai",
-    "profileId": "ronbWwvHhGk",
-    "namespace": "Venta",
-    "waitForConsent": false,
-    "features": { "downloadTracking": true, "formTracking": true }
-  });
-</script>
+<script src="consent.js?v=1"></script>
 <style>
   :root {
     --coral:  #FF7A6B;
@@ -1052,6 +1042,7 @@
         <ul>
           <li><a href="Impressum.html" data-legal-link="imprint" data-i18n="ftr_imprint">Impressum</a></li>
           <li><a href="Datenschutz.html" data-legal-link="privacy" data-i18n="ftr_privacy">Datenschutz</a></li>
+          <li><a href="#" data-consent-open data-no-lang data-i18n="ftr_consent">Cookie-Einstellungen</a></li>
         </ul>
       </div>
     </div>
@@ -1172,6 +1163,7 @@
       ftr_legal_h: 'Rechtliches',
       ftr_imprint: 'Impressum',
       ftr_privacy: 'Datenschutz',
+      ftr_consent: 'Cookie-Einstellungen',
       ftr_meta: 'made for what\u2019s next',
       bk_eyebrow: 'erstgespräch',
       bk_h: 'Schreiben Sie mir <em>kurz</em> — ich melde mich.',
@@ -1237,6 +1229,7 @@
       ftr_legal_h: 'Legal',
       ftr_imprint: 'Imprint',
       ftr_privacy: 'Privacy',
+      ftr_consent: 'Cookie settings',
       ftr_meta: 'made for what\u2019s next',
       bk_eyebrow: 'intro call',
       bk_h: 'Drop me a <em>short</em> note — I’ll get back.',

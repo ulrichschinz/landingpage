@@ -15,17 +15,7 @@
     }
   })();
 </script>
-<!-- Venta / Radar analytics -->
-<script>
-  !function(e){"use strict";var a=e&&e.namespace;if(a&&e.profileId&&e.cdn){var r=window[a];if(r&&Array.isArray(r)||(r=window[a]=[]),!r.initialized&&!r._loaded)if(r._loaded)console&&console.warn("[Radar] Duplicate initialization attempted");else{r._loaded=!0;["track","page","identify","group","alias","ready","debug","on","off","once","trackClick","trackSubmit","trackLink","trackForm","pageview","screen","reset","register","setAnonymousId","addSourceMiddleware","addIntegrationMiddleware","addDestinationMiddleware"].forEach((function(e){var i;r[e]=(i=e,function(){var e=window[a];if(e.initialized)return e[i].apply(e,arguments);var r=[].slice.call(arguments);return r.unshift(i),e.push(r),e})})),r.bootstrap=function(){var a=document.createElement("script");a.async=!0,a.type="text/javascript",a.id="__radar__",a.dataset.settings=JSON.stringify(e),a.src="https://"+e.cdn+"/releases/latest/radar.min.js";var r=document.scripts[0];r.parentNode.insertBefore(a,r)},r.bootstrap()}}else"undefined"!=typeof console&&console.error("[Radar] Configuration incomplete")}({
-    "cdn": "cdn.getventa.ai",
-    "apiEndpoint": "api.getventa.ai",
-    "profileId": "ronbWwvHhGk",
-    "namespace": "Venta",
-    "waitForConsent": false,
-    "features": { "downloadTracking": true, "formTracking": true }
-  });
-</script>
+<script src="consent.js?v=1"></script>
 <style>
   :root {
     --coral:  #FF7A6B;
@@ -269,8 +259,9 @@
     <p>
       Diese Website verzichtet auf Werbenetzwerke, Social-Media-Plugins und eingebettete
       Drittinhalte. Zur Reichweitenmessung und zur Analyse der Website-Nutzung setzen wir den
-      Dienst <strong>Venta AI</strong> ein; dieser speichert ein Cookie auf Ihrem Endgerät.
-      Einzelheiten und die Widerspruchsmöglichkeit finden Sie unter Ziffer 08.
+      Dienst <strong>Venta AI</strong> ein — jedoch <strong>nur, wenn Sie zuvor eingewilligt
+      haben</strong>. Ohne Ihre Einwilligung wird der Dienst nicht geladen. Einzelheiten und den
+      Widerruf finden Sie unter Ziffer 08.
     </p>
 
     <h2 id="serverlogs"><span class="num">03</span>Server-Log-Dateien</h2>
@@ -332,10 +323,11 @@
       <strong>Spam-Schutz:</strong> Wir verwenden einen technischen Honeypot (verstecktes
       Formularfeld), der automatisierte Spam-Einreichungen erkennt. Es wird dabei kein
       Drittanbieter-Captcha-Dienst eingebunden.<br>
-      <strong>Formular-Analyse:</strong> Der unter Ziffer 08 beschriebene Dienst <strong>Venta AI</strong>
-      erfasst zusätzlich Ihre Interaktion mit diesem Formular — einschließlich der von Ihnen
-      eingegebenen Feldinhalte (Name, E-Mail-Adresse, Unternehmen, Nachricht) — und übermittelt
-      diese an Venta AI. Passwort- und Zahlungsfelder sind davon technisch ausgenommen; solche
+      <strong>Formular-Analyse:</strong> Sofern Sie in den Einsatz von <strong>Venta AI</strong>
+      eingewilligt haben (Ziffer 08), erfasst dieser Dienst zusätzlich Ihre Interaktion mit dem
+      Formular — einschließlich der von Ihnen eingegebenen Feldinhalte (Name, E-Mail-Adresse,
+      Unternehmen, Nachricht) — und übermittelt diese an Venta AI. <strong>Ohne Ihre Einwilligung
+      unterbleibt dies vollständig</strong>; das Formular funktioniert unabhängig davon. Passwort- und Zahlungsfelder sind davon technisch ausgenommen; solche
       Felder enthält dieses Formular ohnehin nicht.
     </p>
 
@@ -411,8 +403,28 @@
       Das Speichern und Auslesen von Informationen auf Ihrem Endgerät erfolgt auf Grundlage Ihrer
       Einwilligung nach <strong>§ 25 Abs. 1 TDDDG</strong>. Die anschließende Verarbeitung der so
       erhobenen personenbezogenen Daten stützt sich auf <strong>Art. 6 Abs. 1 lit. a DSGVO</strong>
-      (Einwilligung). Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen;
-      die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt davon unberührt.
+      (Einwilligung).
+    </p>
+    <p>
+      Beim ersten Besuch dieser Website fragen wir Ihre Einwilligung über einen Hinweis am unteren
+      Bildschirmrand ab. <strong>Solange Sie nicht zugestimmt haben, wird das Skript von Venta AI
+      nicht geladen</strong> — es werden weder Daten an den Anbieter übermittelt noch Cookies oder
+      sonstige Einträge auf Ihrem Endgerät gespeichert. Lehnen Sie ab, unterbleibt der Einsatz
+      dauerhaft; die Website ist ohne Einschränkung nutzbar.
+    </p>
+    <p>
+      Sie können Ihre Einwilligung <strong>jederzeit mit Wirkung für die Zukunft widerrufen</strong> —
+      über den Link
+      <a href="#" data-consent-open data-no-lang><strong>Cookie-Einstellungen</strong></a>
+      am Ende jeder Seite. Beim Widerruf werden die von Venta AI gesetzten Cookies und
+      Speichereinträge gelöscht. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung
+      bleibt unberührt.
+    </p>
+    <p>
+      Ihre Entscheidung selbst speichern wir im Local Storage Ihres Browsers unter dem Eintrag
+      <code>ar_consent</code>. Dieser Eintrag ist erforderlich, um Ihren Wunsch umzusetzen, und
+      daher nach § 25 Abs. 2 Nr. 2 TDDDG einwilligungsfrei. Er enthält ausschließlich Ihre
+      Entscheidung und deren Zeitpunkt und wird nicht übermittelt.
     </p>
 
     <h3>Empfänger, Speicherdauer und Drittlandtransfer</h3>
@@ -428,10 +440,12 @@
 
     <h3>Widerspruch und Löschung</h3>
     <p>
-      Sie können die Erfassung verhindern, indem Sie Cookies und Website-Daten für diese Domain in
-      Ihrem Browser blockieren oder löschen, den „Do Not Track“- bzw. Tracking-Schutz Ihres Browsers
-      aktivieren oder einen Skript-Blocker verwenden. Bereits gesetzte Einträge entfernen Sie über
-      die Browser-Einstellungen („Cookies und Websitedaten löschen“).
+      Der einfachste Weg ist der Widerruf über
+      <a href="#" data-consent-open data-no-lang><strong>Cookie-Einstellungen</strong></a>
+      am Seitenende — damit wird das Tracking beendet und die gesetzten Einträge werden gelöscht.
+      Unabhängig davon können Sie Cookies und Website-Daten für diese Domain in Ihrem Browser
+      blockieren oder löschen, den Tracking-Schutz Ihres Browsers aktivieren oder einen
+      Skript-Blocker verwenden.
     </p>
     <div class="note">
       Wir setzen weder Werbenetzwerke noch Social-Media-Pixel ein. Session-Recording und
@@ -486,6 +500,7 @@
       <a href="index.html">Start</a>
       <a href="Impressum.html">Impressum</a>
       <a href="mailto:hello@agentic-reach.com">Kontakt</a>
+      <a href="#" data-consent-open data-no-lang>Cookie-Einstellungen</a>
     </div>
   </div>
 </footer>
