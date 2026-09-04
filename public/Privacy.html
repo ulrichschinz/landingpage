@@ -150,6 +150,15 @@
     font-size: 16px; line-height: 1.65; color: var(--ink);
   }
   .legal p { margin: 0 0 14px; }
+  .legal code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.86em;
+    background: var(--bg-alt);
+    border: 1px solid rgba(27, 20, 40, 0.10);
+    border-radius: 4px;
+    padding: 1px 5px;
+    word-break: break-word;
+  }
   .legal ul { padding-left: 20px; margin: 0 0 14px; }
   .legal a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--coral); text-underline-offset: 3px; }
   .legal a:hover { color: var(--coral); }
@@ -237,7 +246,7 @@
         <li><a href="#contactform">Contact form (intro call)</a></li>
         <li><a href="#hosting">Hosting</a></li>
         <li><a href="#fonts">Fonts (self-hosted)</a></li>
-        <li><a href="#cookies">Cookies &amp; tracking</a></li>
+        <li><a href="#cookies">Cookies &amp; analytics (Venta AI)</a></li>
         <li><a href="#rights">Your rights</a></li>
         <li><a href="#complaint">Right to complain</a></li>
         <li><a href="#changes">Changes</a></li>
@@ -267,8 +276,9 @@
       Art. 6 GDPR applies.
     </p>
     <p>
-      This website intentionally does without tracking, analytics tools, ad networks, and embedded
-      third-party content. No cookies are set for marketing or statistics purposes.
+      This website does without ad networks, social-media plugins and embedded third-party
+      content. For reach measurement and usage analysis we use the service <strong>Venta AI</strong>,
+      which stores a cookie on your device. Details and how to object are set out in section 08.
     </p>
 
     <h2 id="serverlogs"><span class="num">03</span>Server log files</h2>
@@ -327,7 +337,11 @@
       <strong>Retention period:</strong> Form inputs are not stored persistently by the web server;
       data forwarded by email is handled as described in section 04.<br>
       <strong>Spam protection:</strong> We use a technical honeypot (a hidden form field) to detect
-      automated spam submissions. No cookies are set and no third-party CAPTCHA service is used.
+      automated spam submissions. No third-party CAPTCHA service is used.<br>
+      <strong>Form analytics:</strong> The service <strong>Venta AI</strong> described in section 08
+      additionally records your interaction with this form — including the field contents you enter
+      (name, email address, company, message) — and transmits them to Venta AI. Password and payment
+      fields are technically excluded; this form does not contain such fields in any case.
     </p>
 
     <h2 id="hosting"><span class="num">06</span>Hosting</h2>
@@ -351,18 +365,77 @@
       <strong>License notice:</strong> The fonts are licensed under the SIL Open Font License (OFL).
     </div>
 
-    <h2 id="cookies"><span class="num">08</span>Cookies &amp; tracking</h2>
+    <h2 id="cookies"><span class="num">08</span>Cookies &amp; analytics (Venta AI)</h2>
     <p>
-      <strong>This website does not set any cookies and does not use any tracking.</strong>
+      This website uses <strong>Venta AI</strong>, a service for reach measurement and analysis of
+      usage behaviour. The provider is <strong>april.eleven GmbH</strong>, Am Kartoffelgarten 14,
+      81671 Munich, Germany (Munich Local Court, HRB 279522).
     </p>
     <p>
-      No analytics tools (e.g. Google Analytics, Matomo), no advertising or social-media pixels,
-      and no heatmap or session-recording tools are used. Consent via a cookie banner is therefore
-      not required.
+      When you access this website, a script provided by the provider is loaded
+      (<code>cdn.getventa.ai</code>) which collects usage data and transmits it to
+      <code>api.getventa.ai</code>. In particular, the following are processed:
+    </p>
+    <ul>
+      <li>pages viewed, time on page, clicks, scroll and download events</li>
+      <li>referrer (the page you came from) and campaign parameters in the URL you opened</li>
+      <li>technical details about your browser, operating system, device type and screen resolution</li>
+      <li>your IP address — the provider uses it, among other things, to identify the company from
+          whose network the visit originates (company-level attribution)</li>
+      <li>your entries in forms on this website, including the field contents (see section 05)</li>
+      <li>a pseudonymous device identifier stored in the cookie described below</li>
+    </ul>
+
+    <h3>Cookies and storage technologies used</h3>
+    <p>
+      Venta AI stores information on your device or reads information from it:
+    </p>
+    <ul>
+      <li><strong>Cookie <code>venta_device_id</code></strong> — pseudonymous device identifier,
+          lifetime <strong>365 days</strong>, set on the domain
+          <code>.agentic-reach.com</code></li>
+      <li><strong>Local storage</strong> — <code>venta_device_id</code> and
+          <code>venta_session</code> (each with a corresponding <code>_expires</code> entry):
+          device identifier plus session and usage data, retained for up to 365 days</li>
+      <li><strong>Session storage</strong> (prefixed <code>radar_sn_</code>) — session data, deleted
+          after 24 hours at the latest or when you close the browser tab</li>
+    </ul>
+    <p>
+      A session ends automatically after 30 minutes of inactivity. If cookies from other services
+      (e.g. HubSpot, Intercom, Meta/Facebook) are present in your browser, Venta AI may also read
+      and transmit those identifiers. We do not use any such services ourselves.
+    </p>
+
+    <h3>Legal basis</h3>
+    <p>
+      Storing information on, and reading information from, your device is based on your consent
+      pursuant to <strong>Section 25(1) TDDDG</strong>. The subsequent processing of the personal
+      data collected in this way is based on <strong>Art. 6(1)(a) GDPR</strong> (consent). You may
+      withdraw your consent at any time with effect for the future; the lawfulness of processing
+      carried out before withdrawal remains unaffected.
+    </p>
+
+    <h3>Recipients, retention and transfers to third countries</h3>
+    <p>
+      A data processing agreement pursuant to Art. 28 GDPR is in place with the provider. The script
+      is delivered, and the data transmitted, via content delivery and infrastructure services that
+      also operate servers outside the EU; a transfer to third countries — in particular to the USA
+      — can therefore not be ruled out. Any such transfer takes place on the basis of the European
+      Commission's Standard Contractual Clauses or an adequacy decision. For retention periods and
+      sub-processors, please refer to the provider at
+      <a href="https://getventa.ai" rel="noopener noreferrer" target="_blank">getventa.ai</a>.
+    </p>
+
+    <h3>Objection and deletion</h3>
+    <p>
+      You can prevent this collection by blocking or deleting cookies and website data for this
+      domain in your browser, by enabling your browser's "Do Not Track" or tracking protection, or
+      by using a script blocker. Entries already set can be removed via your browser settings
+      ("delete cookies and site data").
     </p>
     <div class="note">
-      Should we add analytical tools at a later date, we will update this policy with the relevant
-      legal basis and obtain your prior consent where required.
+      We use neither advertising networks nor social-media pixels. Session recording and screen
+      capture are disabled in the Venta AI configuration we use.
     </div>
 
     <h2 id="rights"><span class="num">09</span>Your rights</h2>
@@ -398,7 +471,7 @@
     </p>
 
     <p style="margin-top: 40px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--mute); letter-spacing: 0.04em;">
-      // Last updated: 01 May 2026
+      // Last updated: 04 September 2026
     </p>
 
   </div>

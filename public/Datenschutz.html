@@ -140,6 +140,15 @@
     font-size: 16px; line-height: 1.65; color: var(--ink);
   }
   .legal p { margin: 0 0 14px; }
+  .legal code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.86em;
+    background: var(--bg-alt);
+    border: 1px solid rgba(27, 20, 40, 0.10);
+    border-radius: 4px;
+    padding: 1px 5px;
+    word-break: break-word;
+  }
   .legal ul { padding-left: 20px; margin: 0 0 14px; }
   .legal a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--coral); text-underline-offset: 3px; }
   .legal a:hover { color: var(--coral); }
@@ -228,7 +237,7 @@
         <li><a href="#kontaktformular">Kontaktformular (Erstgespräch)</a></li>
         <li><a href="#hosting">Hosting</a></li>
         <li><a href="#fonts">Schriftarten (lokal eingebunden)</a></li>
-        <li><a href="#cookies">Cookies &amp; Tracking</a></li>
+        <li><a href="#cookies">Cookies &amp; Analyse (Venta AI)</a></li>
         <li><a href="#rechte">Ihre Rechte</a></li>
         <li><a href="#beschwerde">Beschwerderecht</a></li>
         <li><a href="#aenderungen">Änderungen</a></li>
@@ -258,8 +267,10 @@
       und eine Rechtsgrundlage nach Art. 6 DSGVO vorliegt.
     </p>
     <p>
-      Diese Website verzichtet bewusst auf Tracking, Analyse-Tools, Werbenetzwerke und
-      eingebettete Drittinhalte. Es werden keine Cookies zu Marketing- oder Statistikzwecken gesetzt.
+      Diese Website verzichtet auf Werbenetzwerke, Social-Media-Plugins und eingebettete
+      Drittinhalte. Zur Reichweitenmessung und zur Analyse der Website-Nutzung setzen wir den
+      Dienst <strong>Venta AI</strong> ein; dieser speichert ein Cookie auf Ihrem Endgerät.
+      Einzelheiten und die Widerspruchsmöglichkeit finden Sie unter Ziffer 08.
     </p>
 
     <h2 id="serverlogs"><span class="num">03</span>Server-Log-Dateien</h2>
@@ -319,8 +330,13 @@
       gespeichert; die per E-Mail weitergeleiteten Daten werden wie unter Ziffer 04 beschrieben
       behandelt.<br>
       <strong>Spam-Schutz:</strong> Wir verwenden einen technischen Honeypot (verstecktes
-      Formularfeld), der automatisierte Spam-Einreichungen erkennt. Es werden dabei keine Cookies
-      gesetzt und kein Drittanbieter-Captcha-Dienst eingebunden.
+      Formularfeld), der automatisierte Spam-Einreichungen erkennt. Es wird dabei kein
+      Drittanbieter-Captcha-Dienst eingebunden.<br>
+      <strong>Formular-Analyse:</strong> Der unter Ziffer 08 beschriebene Dienst <strong>Venta AI</strong>
+      erfasst zusätzlich Ihre Interaktion mit diesem Formular — einschließlich der von Ihnen
+      eingegebenen Feldinhalte (Name, E-Mail-Adresse, Unternehmen, Nachricht) — und übermittelt
+      diese an Venta AI. Passwort- und Zahlungsfelder sind davon technisch ausgenommen; solche
+      Felder enthält dieses Formular ohnehin nicht.
     </p>
 
     <h2 id="hosting"><span class="num">06</span>Hosting</h2>
@@ -347,18 +363,80 @@
       <strong>Lizenzhinweis:</strong> Die Schriftarten stehen unter der SIL Open Font License (OFL).
     </div>
 
-    <h2 id="cookies"><span class="num">08</span>Cookies &amp; Tracking</h2>
+    <h2 id="cookies"><span class="num">08</span>Cookies &amp; Analyse (Venta AI)</h2>
     <p>
-      <strong>Diese Website setzt keine Cookies und verwendet kein Tracking.</strong>
+      Diese Website nutzt <strong>Venta AI</strong>, einen Dienst zur Reichweitenmessung und
+      Analyse des Nutzungsverhaltens. Anbieter ist die <strong>april.eleven GmbH</strong>,
+      Am Kartoffelgarten 14, 81671 München (Amtsgericht München, HRB 279522).
     </p>
     <p>
-      Es kommen weder Analyse-Tools (z.B. Google Analytics, Matomo), noch Werbe- oder Social-Media-Pixel,
-      noch Heatmaps oder Session-Recording-Werkzeuge zum Einsatz. Eine Einwilligung über einen
-      Cookie-Banner ist deshalb nicht erforderlich.
+      Beim Aufruf dieser Website wird ein Skript des Anbieters geladen
+      (<code>cdn.getventa.ai</code>), das Nutzungsdaten erhebt und an <code>api.getventa.ai</code>
+      übermittelt. Dabei werden insbesondere verarbeitet:
+    </p>
+    <ul>
+      <li>aufgerufene Seiten, Verweildauer, Klicks, Scroll- und Download-Ereignisse</li>
+      <li>Referrer (zuvor besuchte Seite) und Kampagnenparameter der aufgerufenen URL</li>
+      <li>technische Angaben zu Browser, Betriebssystem, Gerätetyp und Bildschirmauflösung</li>
+      <li>Ihre IP-Adresse — der Anbieter verwendet diese unter anderem, um das Unternehmen zu
+          ermitteln, aus dessen Netz der Zugriff erfolgt (unternehmensbezogene Zuordnung)</li>
+      <li>Ihre Eingaben in Formulare dieser Website, einschließlich der Feldinhalte
+          (siehe Ziffer 05)</li>
+      <li>eine pseudonyme Geräte-Kennung, die im nachfolgend beschriebenen Cookie gespeichert wird</li>
+    </ul>
+
+    <h3>Eingesetzte Cookies und Speichertechnologien</h3>
+    <p>
+      Venta AI speichert Informationen auf Ihrem Endgerät bzw. liest sie dort aus:
+    </p>
+    <ul>
+      <li><strong>Cookie <code>venta_device_id</code></strong> — pseudonyme Geräte-Kennung,
+          Laufzeit <strong>365 Tage</strong>, gesetzt auf die Domain
+          <code>.agentic-reach.com</code></li>
+      <li><strong>Local Storage</strong> — <code>venta_device_id</code> und
+          <code>venta_session</code> (jeweils mit zugehörigem <code>_expires</code>-Eintrag):
+          Geräte-Kennung sowie Sitzungs- und Nutzungsdaten, Laufzeit bis zu 365 Tage</li>
+      <li><strong>Session Storage</strong> (Präfix <code>radar_sn_</code>) — Sitzungsdaten,
+          gelöscht spätestens nach 24 Stunden bzw. beim Schließen des Browser-Tabs</li>
+    </ul>
+    <p>
+      Eine Sitzung endet automatisch nach 30 Minuten ohne Aktivität. Sofern in Ihrem Browser
+      Cookies anderer Dienste (z.B. HubSpot, Intercom, Meta/Facebook) vorhanden sind, kann
+      Venta AI deren Kennungen mit auslesen und übermitteln. Wir selbst setzen keine solchen
+      Dienste ein.
+    </p>
+
+    <h3>Rechtsgrundlage</h3>
+    <p>
+      Das Speichern und Auslesen von Informationen auf Ihrem Endgerät erfolgt auf Grundlage Ihrer
+      Einwilligung nach <strong>§ 25 Abs. 1 TDDDG</strong>. Die anschließende Verarbeitung der so
+      erhobenen personenbezogenen Daten stützt sich auf <strong>Art. 6 Abs. 1 lit. a DSGVO</strong>
+      (Einwilligung). Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen;
+      die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt davon unberührt.
+    </p>
+
+    <h3>Empfänger, Speicherdauer und Drittlandtransfer</h3>
+    <p>
+      Mit dem Anbieter besteht ein Auftragsverarbeitungsvertrag gemäß Art. 28 DSGVO. Die
+      Auslieferung des Skripts und die Übermittlung der Daten erfolgen über Content-Delivery- und
+      Infrastrukturdienste, die auch Server außerhalb der EU betreiben; eine Übermittlung in
+      Drittländer — insbesondere in die USA — kann daher nicht ausgeschlossen werden. Sie erfolgt
+      auf Grundlage der Standardvertragsklauseln der EU-Kommission bzw. eines
+      Angemessenheitsbeschlusses. Zu Speicherdauer und Unterauftragsverarbeitern informiert der
+      Anbieter unter <a href="https://getventa.ai" rel="noopener noreferrer" target="_blank">getventa.ai</a>.
+    </p>
+
+    <h3>Widerspruch und Löschung</h3>
+    <p>
+      Sie können die Erfassung verhindern, indem Sie Cookies und Website-Daten für diese Domain in
+      Ihrem Browser blockieren oder löschen, den „Do Not Track“- bzw. Tracking-Schutz Ihres Browsers
+      aktivieren oder einen Skript-Blocker verwenden. Bereits gesetzte Einträge entfernen Sie über
+      die Browser-Einstellungen („Cookies und Websitedaten löschen“).
     </p>
     <div class="note">
-      Sollten wir später analytische Werkzeuge einsetzen, ergänzen wir diese Erklärung um die
-      jeweilige Rechtsgrundlage und holen — soweit erforderlich — vorher Ihre Einwilligung ein.
+      Wir setzen weder Werbenetzwerke noch Social-Media-Pixel ein. Session-Recording und
+      Bildschirmaufzeichnung sind in der von uns verwendeten Konfiguration von Venta AI
+      deaktiviert.
     </div>
 
     <h2 id="rechte"><span class="num">09</span>Ihre Rechte</h2>
@@ -395,7 +473,7 @@
     </p>
 
     <p style="margin-top: 40px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--mute); letter-spacing: 0.04em;">
-      // Stand: 01.05.2026
+      // Stand: 04.09.2026
     </p>
 
   </div>
